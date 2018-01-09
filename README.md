@@ -19,12 +19,12 @@
     ```
 - 运行效果如下所示:
     - 推荐页运行效果:
-        - ![index](https://github.com/laternkiwis/QQMusicPlayer/blob/master/Vuejs/index.PNG)
+        - ![index](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/index.PNG)
     - list列表页运行效果:
-        - ![list](https://github.com/laternkiwis/QQMusicPlayer/blob/master/Vuejs/list.PNG)
+        - ![list](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/list.PNG)
     - search搜索页面运行效果:
-        - ![search](https://github.com/laternkiwis/QQMusicPlayer/blob/master/Vuejs/search.PNG)
+        - ![search](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/search.PNG)
     - detail页面运行效果:
-        - ![detail](https://github.com/laternkiwis/QQMusicPlayer/blob/master/Vuejs/detail.PNG)
+        - ![detail](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/detail.PNG)
      
 > 未完待续中，音乐的专辑列表播放页，以及歌手详情页待续开发
