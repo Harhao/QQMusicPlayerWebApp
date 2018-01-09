@@ -19,13 +19,13 @@
         <div :class="{pause:!this.toggle,control:this.toggle}" @click="controlPause"></div>
       </div>
       <div id="lyrics">
-        <div id="avatar" >
+        <div id="avatar" @click="toggleAvatar">
           <img class="img" :class="{Rotation:this.toggle}" :src="songPlayList[0].singerAvartar"/>
           <span class="largeCir">
             <span class="smallCir"></span>
           </span>
         </div>
-        <div id="lyricsCon" class="hide">eretetewtertertytyery</div>
+        <div id="lyricsCon" class="hide" @click="togglelyricsCon">eretetewtertertytyery</div>
         <div id="dots">
           <span class="dot"></span>
           <span class="dot"></span>
