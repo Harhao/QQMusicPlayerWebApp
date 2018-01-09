@@ -39,8 +39,11 @@
     height:0px;
     position: absolute;
     bottom: 0;
-    background-color: #473d4c;
+    background-color: #080708;
     opacity: 0.9;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 999;
   }
   #globalList ul{
     padding: 0;
@@ -51,9 +54,12 @@
     color: #fff;
     font-family:"宋体";
     font-size: 18px;
-    height: 35px;
-    line-height: 35px;
+    height: 40px;
+    line-height: 40px;
     padding:5px 15px 5px 25px;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    font-family: "微软雅黑";
   }
   #globalList li:first-child{
     color: #31c37c;

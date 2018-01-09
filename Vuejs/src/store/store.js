@@ -42,6 +42,17 @@ const store =new Vuex.Store({
       var song=state.songPlayList.splice(index,1);
       state.songPlayList.unshift(song);
       console.log(state.songPlayList);
+    },
+    addSong(state,data){
+      for(var i=0;i<data.length;i++){
+        var singleSong={
+          singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
+          songName:data[i].title,
+          singer:data[i].singer[0].name,
+          songSrc:data[i].url
+        };
+        state.songPlayList.push(singleSong);
+      }
     }
   }
 })
