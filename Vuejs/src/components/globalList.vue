@@ -1,0 +1,61 @@
+<template>
+    <div id="globalList">
+      <ul>
+        <li  v-for="(item,index) in songLists" @click="addToPlay" :data-index="index">{{item.songName}}-{{item.singer}}</li>
+      </ul>
+    </div>
+</template>
+<script type="text/ecmascript-6">
+    export default{
+        components: {},
+        data(){
+          return{
+
+          };
+
+        },
+        computed:{
+          songLists(){
+            return this.$store.state.songPlayList;
+          }
+        },
+        methods: {
+          addToPlay(event){
+            var index=event.target.getAttribute('data-index');
+            this.$store.commit('changeList',index);
+          }
+        }
+    }
+</script>
+<style scoped>
+  .hide{
+    display: none;
+  }
+  .show{
+    display: block;
+  }
+  #globalList{
+    width: 100%;
+    height:0px;
+    position: absolute;
+    bottom: 0;
+    background-color: #473d4c;
+    opacity: 0.9;
+  }
+  #globalList ul{
+    padding: 0;
+    margin: 0;
+  }
+ #globalList li{
+    list-style: none;
+    color: #fff;
+    font-family:"宋体";
+    font-size: 18px;
+    height: 35px;
+    line-height: 35px;
+    padding:5px 15px 5px 25px;
+  }
+  #globalList li:first-child{
+    color: #31c37c;
+  }
+</style>
