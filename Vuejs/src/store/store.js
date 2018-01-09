@@ -9,20 +9,20 @@ const store =new Vuex.Store({
   state:{
     toggle:false,
     songPlayList:[{
-      singerAvartar:"https://y.gtimg.cn/music/photo_new/T001R150x150M000003Nz2So3XXYek.jpg?max_age=2592000",
-      songName:"十年",
-      singer:"陈奕迅",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400001OyHbk2MSIi4.m4a?guid=895385890&vkey=CB2876985C0D31AC71753ABAF5550AC3E0CD8BC4EFD487F861C2F7E97BB8DC08D1B866DA925E3FF6A4665C3B99A56AC607B2C97BE8D87D25&uin=&fromtag=999"
+      singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
+      songName:"说散就散",
+      singer:"袁娅维",
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400003vUjJp3QwFcd.m4a?guid=1337312690&vkey=41E1C2A7593054D6AE053B6DEEBB1AF35C40509EDE5D3625684A85656FDCC7F4C0E203FB08298C886C25E60030188D3CD7D7586371BDF001&uin=&fromtag=999"
     },{
-      singerAvartar:"https://y.gtimg.cn/music/photo_new/T001R150x150M000003Nz2So3XXYek.jpg?max_age=2592000",
-      songName:"红玫瑰",
-      singer:"陈奕迅",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C40000481cWs2JgWe0.m4a?guid=895385890&vkey=D4FFBA9CA38755BB14EB8B3BDBF583AC1AD58CA432C1DAACAE0B2D0C48AFE8B7F440D278233D7568BBD22DA721367071C72626AC2B15F245&uin=&fromtag=999"
+      singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
+      songName:"说散就散",
+      singer:"袁娅维",
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400003vUjJp3QwFcd.m4a?guid=1337312690&vkey=41E1C2A7593054D6AE053B6DEEBB1AF35C40509EDE5D3625684A85656FDCC7F4C0E203FB08298C886C25E60030188D3CD7D7586371BDF001&uin=&fromtag=999"
     },{
-      singerAvartar:"https://y.gtimg.cn/music/photo_new/T001R150x150M000003Nz2So3XXYek.jpg?max_age=2592000",
-      songName:"好久不见",
-      singer:"陈奕迅",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400004M3yRr3kOfnS.m4a?guid=895385890&vkey=4D02AD21150F3C55B1F8055BFDB831794652F37370C414D353F1C1D634718D7C6415FE8F1B688BD45405A2715B2F6CF143ADB067595BF6BA&uin=&fromtag=9"
+      singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
+      songName:"说散就散",
+      singer:"袁娅维",
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400003vUjJp3QwFcd.m4a?guid=1337312690&vkey=41E1C2A7593054D6AE053B6DEEBB1AF35C40509EDE5D3625684A85656FDCC7F4C0E203FB08298C886C25E60030188D3CD7D7586371BDF001&uin=&fromtag=999"
     }],
     prevPlayList:[],
   },

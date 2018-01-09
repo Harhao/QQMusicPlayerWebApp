@@ -27,6 +27,7 @@
     methods:{
       openDetail(event){
         document.getElementById('musicPlayer').style.display="block";
+        document.documentElement.style.overflow="hidden";
       },
       play(event){
         var audio=document.getElementById('play');

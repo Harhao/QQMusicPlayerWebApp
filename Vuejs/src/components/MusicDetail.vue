@@ -95,6 +95,7 @@
       },
       Back(){
         document.getElementById('musicPlayer').style.display='none';
+        document.documentElement.style.overflow="auto";
       },
       updateCurrentTime(){
         var audio=document.getElementById('play');
