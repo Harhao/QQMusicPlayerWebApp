@@ -19,11 +19,16 @@
         <div :class="{pause:!this.toggle,control:this.toggle}" @click="controlPause"></div>
       </div>
       <div id="lyrics">
-        <div id="avatar">
+        <div id="avatar" >
           <img class="img" :class="{Rotation:this.toggle}" :src="songPlayList[0].singerAvartar"/>
           <span class="largeCir">
             <span class="smallCir"></span>
           </span>
+        </div>
+        <div id="lyricsCon" class="hide">eretetewtertertytyery</div>
+        <div id="dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
         </div>
       </div>
       <div id="musicControlPane">
@@ -167,7 +172,7 @@
           console.log('store done');
         }
 
-      }
+      },
 
     },
     mounted() {
@@ -403,5 +408,11 @@
   #play{
     width: 100%;
     height: 0;
+  }
+  .hide{
+    display: none;
+  }
+  .show{
+    display: block;
   }
 </style>
