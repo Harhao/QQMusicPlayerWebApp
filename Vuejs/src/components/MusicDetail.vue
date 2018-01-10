@@ -173,6 +173,19 @@
         }
 
       },
+      toggleAvatar(){
+      	document.getElementById("avatar").classList.add('hide');
+      	document.getElementById("lyricsCon").classList.remove('hide');
+      	this.$http.get("http://localhost:3000/lyrics").then((response)=>{
+      		console.log(response);
+      	}).catch((e)=>{
+      		console.log(e);
+      	});
+      },
+      togglelyricsCon(){
+      	document.getElementById("lyricsCon").classList.add('hide');
+      	document.getElementById("avatar").classList.remove('hide');
+      }
 
     },
     mounted() {
@@ -267,7 +280,7 @@
     background-position: center center;
     background-size:45px 45px ;
   }
-  #avatar{
+  #avatar,#lyricsCon{
     position: relative;
     display: flex;
     /*width: 300px;*/
@@ -278,6 +291,9 @@
     align-self: center;
     justify-content: center;
     justify-items: center;
+  }
+  #lyricsCon{
+  	min-height:250px;
   }
   #avatar img{
     /*width: 208px;*/
@@ -410,9 +426,6 @@
     height: 0;
   }
   .hide{
-    display: none;
-  }
-  .show{
-    display: block;
+    display: none !important;
   }
 </style>
