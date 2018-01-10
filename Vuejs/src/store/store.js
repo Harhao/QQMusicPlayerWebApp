@@ -12,17 +12,12 @@ const store =new Vuex.Store({
       singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
       songName:"说散就散",
       singer:"袁娅维",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400003vUjJp3QwFcd.m4a?guid=1337312690&vkey=41E1C2A7593054D6AE053B6DEEBB1AF35C40509EDE5D3625684A85656FDCC7F4C0E203FB08298C886C25E60030188D3CD7D7586371BDF001&uin=&fromtag=999"
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400003vUjJp3QwFcd.m4a?guid=895385890&vkey=1C910A6B64F39DE253B5E08E9C700E6C5CBD2AE6633539EBF81DD4D49BC95D1C0D41DCB87C8C30243FCB54703C9049B7501AD7D7BEE55B99&uin=&fromtag=999"
     },{
       singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
-      songName:"说散就散",
+      songName:"体面",
       singer:"袁娅维",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400003vUjJp3QwFcd.m4a?guid=1337312690&vkey=41E1C2A7593054D6AE053B6DEEBB1AF35C40509EDE5D3625684A85656FDCC7F4C0E203FB08298C886C25E60030188D3CD7D7586371BDF001&uin=&fromtag=999"
-    },{
-      singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
-      songName:"说散就散",
-      singer:"袁娅维",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400003vUjJp3QwFcd.m4a?guid=1337312690&vkey=41E1C2A7593054D6AE053B6DEEBB1AF35C40509EDE5D3625684A85656FDCC7F4C0E203FB08298C886C25E60030188D3CD7D7586371BDF001&uin=&fromtag=999"
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400000Md1wq0vnwzE.m4a?fromtag=38&vkey=81AEB6C6D7085AB4AA793BCF2D864A19D621D5D982A0C6F6E58BFF40553BDD711355610E02D9394EE8DC4045E29C863BBFD70B25CAD9EF05&guid=895385890"
     }],
     prevPlayList:[],
   },

@@ -40,7 +40,7 @@
     position: absolute;
     bottom: 0;
     background-color: #080708;
-    opacity: 0.9;
+    opacity: 0.8;
     overflow-y: scroll;
     overflow-x: hidden;
     z-index: 999;
@@ -52,8 +52,7 @@
  #globalList li{
     list-style: none;
     color: #fff;
-    font-family:"宋体";
-    font-size: 18px;
+    font-size: 16px;
     height: 40px;
     line-height: 40px;
     padding:5px 15px 5px 25px;

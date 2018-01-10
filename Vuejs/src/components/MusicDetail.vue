@@ -1,5 +1,5 @@
 <template>
-    <div id="musicPlayer">
+    <div id="musicPlayer" >
 
       <div id="back">
         <div id="backCon" @click="Back">
@@ -26,7 +26,7 @@
           </span>
         </div>
         <div id="lyricsCon" class="hide" @click="togglelyricsCon">
-            <div id="custom">
+            <div id="custom" @touchstart="start" @touchmove="move" @touchend="end">
               <p v-for="(item,index) in lyric" :data-index="index">
                 <span v-for="(row,index) in item" :data-time="index">{{row}}</span>
               </p>
@@ -62,7 +62,10 @@
         duration:'',
         currentTime:'',
         show:false,
-        count:0
+        count:0,
+        startY:0,
+        moveY:0,
+        endY:0
       }
     },
     computed:{
@@ -251,6 +254,20 @@
             div.appendChild(node);
           }
         }
+      },
+      start(event){
+        this.startY=event.touches[0].pageY;
+        console.log("start");
+      },
+      move(event){
+        event.preventDefault();
+        this.moveY=event.touches[0].pageY;
+        let distance=this.moveY-this.startY;
+        let top=document.getElementById('custom').style.top;
+        document.getElementById('custom').style.top=parseFloat(top)+distance+'px';
+      },
+      end(event){
+        this.endY=event.changedTouches[0].pageY;
       }
 
     },
