@@ -145,7 +145,19 @@
         this.currentTime=currentTime;
         var percent=(audio.currentTime.toFixed(0)/audio.duration.toFixed(0))*100;
         document.getElementsByClassName('current')[0].style.width=percent+'%';
+        let Con=document.getElementById('custom');
+        let Spans=Con.getElementsByTagName('span');
 
+        for(var i=0;i<Spans.length;i++){
+          var attr=Spans[i].getAttribute('data-time');
+          if(parseInt(audio.currentTime)==attr){
+            let index=Spans[i].parentNode.getAttribute('data-index');
+            Spans[index].classList.add('currentLyc');
+            Spans[index-1].classList.remove('currentLyc');
+            Con.style.top=(-35)*index+'px';
+            console.log(Con.style.top);
+          }
+        }
       },
       getDuration(){
         var audio=document.getElementById('play');
@@ -356,8 +368,9 @@
   #custom{
     position: absolute;
     top: 0;
-    height:250px;
-    overflow-y: scroll;
+    /* height:250px;
+    overflow-y: scroll; */
+    -webkit-transition:top 0.3s ease-in-out;
 
   }
   #custom p span{
@@ -368,8 +381,8 @@
     font-family: "微软雅黑";
     text-align: center !important;
   }
-  #custom p:first-child span{
-    color: #31c37c;
+  .currentLyc{
+    color: #31c37c !important;
   }
   #avatar img{
     /*width: 208px;*/
