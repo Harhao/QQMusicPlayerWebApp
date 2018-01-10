@@ -26,11 +26,11 @@
           </span>
         </div>
         <div id="lyricsCon" class="hide" @click="togglelyricsCon">
-            <div id="custom"></div>
-        </div>
-        <div id="dots">
-          <span class="dot"></span>
-          <span class="dot"></span>
+            <div id="custom">
+              <p v-for="(item,index) in lyric" :data-index="index">
+                <span v-for="(row,index) in item" :data-time="index">{{row}}</span>
+              </p>
+            </div>
         </div>
       </div>
       <div id="musicControlPane">
@@ -72,7 +72,41 @@
       songPlayList(){
         return this.$store.state.songPlayList;
       },
+      lyric(){
+          let globalArr=[];
+          this.$http.get("http://localhost:3000/lyrics").then((response)=>{
+              let lyric=response.data.lyric;
+              let tmpLyric=this.formatLyric(lyric);
+              let Arr=tmpLyric.split('\n');
 
+              for(let i=0;i<Arr.length;i++){
+                let row=Arr[i].split(']');
+                let obj={};
+                if(row[2]){
+                  let time=row[1].split('[')[1];
+                  let second=Math.floor(time.split(':')[1]);
+                  let minute=parseInt(time.split(':')[0]);
+                  time=minute*60+second;
+                  obj[time]=row[2];
+                  globalArr.push(obj);
+                }else if(!row[1]){
+                  continue;
+                }else{
+                  let time=row[0].split('[')[1];
+                  let second=Math.floor(time.split(':')[1]);
+                  let minute=parseInt(time.split(':')[0]);
+                  time=second+minute*60;
+                  obj[time]=row[1];
+                  globalArr.push(obj);
+                }
+
+              }
+
+          }).catch((e)=>{
+            console.log(e);
+          });
+          return globalArr;
+      }
     },
     methods:{
       formatTime(time,audio){
@@ -179,38 +213,7 @@
       toggleAvatar(){
         	document.getElementById("avatar").classList.add('hide');
         	document.getElementById("lyricsCon").classList.remove('hide');
-          if(this.count==0){
-              	this.$http.get("http://localhost:3000/lyrics").then((response)=>{
-              		let lyric=response.data.lyric;
-                  let tmpLyric=this.formatLyric(lyric);
-                  let Arr=tmpLyric.split('\n');
-                  let globalArr=[];
-                  for(let i=0;i<Arr.length;i++){
-                    let row=Arr[i].split(']');
-                    let obj={};
-                    if(row[2]){
-                      let time=row[1].split('[')[1];
-                      let second=row[1].split('[')[0]
-                      time=Math.floor(time.split(':')[1]*1)+second*60;
-                      obj[time]=row[2];
-                      globalArr.push(obj);
-                    }else if(!row[1]){
-                      continue;
-                    }else{
-                      let time=row[0].split('[')[1];
-                      let second=row[0].split('[')[0]
-                      time=Math.floor(time.split(':')[1]*1)+second*60;
-                      obj[time]=row[1];
-                      globalArr.push(obj);
-                    }
-                  }
 
-                    this.addToContent(globalArr);
-                    this.count++;
-          	}).catch((e)=>{
-          		console.log(e);
-          	});
-          }
       },
       togglelyricsCon(){
       	document.getElementById("lyricsCon").classList.add('hide');
@@ -221,6 +224,7 @@
         str=str.replace(/&#46;/g,'.');
         str=str.replace(/&#13;/g,'\n');
         str=str.replace(/&#10;/g,'');
+        str=str.replace(/(&#32;)|(&#40;)|(&#45;)|(&#41;)/g,'');
         return str;
       },
       addToContent(obj){
@@ -346,12 +350,26 @@
     flex-direction: column;
     border-radius: 0;
   }
+  ::-webkit-scrollbar{
+    display:none;
+  }
   #custom{
     position: absolute;
     top: 0;
     height:250px;
     overflow-y: scroll;
 
+  }
+  #custom p span{
+    display: inline-block;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    text-align: center !important;
+  }
+  #custom p:first-child span{
+    color: #31c37c;
   }
   #avatar img{
     /*width: 208px;*/
@@ -387,7 +405,7 @@
   #lyrics{
     display: flex;
     width: 100%;
-    min-height: 150px;
+    min-height:250px;
    justify-items: center;
     justify-content: center;
   }
