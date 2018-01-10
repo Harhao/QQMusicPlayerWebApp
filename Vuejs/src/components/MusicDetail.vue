@@ -25,7 +25,9 @@
             <span class="smallCir"></span>
           </span>
         </div>
-        <div id="lyricsCon" class="hide" @click="togglelyricsCon">eretetewtertertytyery</div>
+        <div id="lyricsCon" class="hide" @click="togglelyricsCon">
+            <div id="custom"></div>
+        </div>
         <div id="dots">
           <span class="dot"></span>
           <span class="dot"></span>
@@ -59,7 +61,8 @@
       return {
         duration:'',
         currentTime:'',
-        show:false
+        show:false,
+        count:0
       }
     },
     computed:{
@@ -174,17 +177,63 @@
 
       },
       toggleAvatar(){
-      	document.getElementById("avatar").classList.add('hide');
-      	document.getElementById("lyricsCon").classList.remove('hide');
-      	this.$http.get("http://localhost:3000/lyrics").then((response)=>{
-      		console.log(response);
-      	}).catch((e)=>{
-      		console.log(e);
-      	});
+        	document.getElementById("avatar").classList.add('hide');
+        	document.getElementById("lyricsCon").classList.remove('hide');
+          if(this.count==0){
+              	this.$http.get("http://localhost:3000/lyrics").then((response)=>{
+              		let lyric=response.data.lyric;
+                  let tmpLyric=this.formatLyric(lyric);
+                  let Arr=tmpLyric.split('\n');
+                  let globalArr=[];
+                  for(let i=0;i<Arr.length;i++){
+                    let row=Arr[i].split(']');
+                    let obj={};
+                    if(row[2]){
+                      let time=row[1].split('[')[1];
+                      let second=row[1].split('[')[0]
+                      time=Math.floor(time.split(':')[1]*1)+second*60;
+                      obj[time]=row[2];
+                      globalArr.push(obj);
+                    }else if(!row[1]){
+                      continue;
+                    }else{
+                      let time=row[0].split('[')[1];
+                      let second=row[0].split('[')[0]
+                      time=Math.floor(time.split(':')[1]*1)+second*60;
+                      obj[time]=row[1];
+                      globalArr.push(obj);
+                    }
+                  }
+
+                    this.addToContent(globalArr);
+                    this.count++;
+          	}).catch((e)=>{
+          		console.log(e);
+          	});
+          }
       },
       togglelyricsCon(){
       	document.getElementById("lyricsCon").classList.add('hide');
       	document.getElementById("avatar").classList.remove('hide');
+      },
+      formatLyric(lyric){
+        var str=lyric.replace(/&#58;/g,':');
+        str=str.replace(/&#46;/g,'.');
+        str=str.replace(/&#13;/g,'\n');
+        str=str.replace(/&#10;/g,'');
+        return str;
+      },
+      addToContent(obj){
+        var div=document.getElementById('custom');
+        for(var i=0;i<obj.length;i++){
+          for(var key in obj[i]){
+            var node=document.createElement('p');
+            node.style["text-align"]="center";
+            node.style.color="#fff";
+            node.innerHTML=obj[i][key];
+            div.appendChild(node);
+          }
+        }
       }
 
     },
@@ -283,8 +332,6 @@
   #avatar,#lyricsCon{
     position: relative;
     display: flex;
-    /*width: 300px;*/
-    /*height: 300px;*/
     width: 80%;
     height: 80%;
     border-radius: 50%;
@@ -294,6 +341,17 @@
   }
   #lyricsCon{
   	min-height:250px;
+    max-height: 250px;
+    overflow-y: hidden;
+    flex-direction: column;
+    border-radius: 0;
+  }
+  #custom{
+    position: absolute;
+    top: 0;
+    height:250px;
+    overflow-y: scroll;
+
   }
   #avatar img{
     /*width: 208px;*/
