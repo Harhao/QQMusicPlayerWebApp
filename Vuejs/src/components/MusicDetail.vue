@@ -152,10 +152,11 @@
           var attr=Spans[i].getAttribute('data-time');
           if(parseInt(audio.currentTime)==attr){
             let index=Spans[i].parentNode.getAttribute('data-index');
-            Spans[index].classList.add('currentLyc');
-            Spans[index-1].classList.remove('currentLyc');
-            Con.style.top=(-35)*index+'px';
-            console.log(Con.style.top);
+            if(index>0){
+              Spans[index].classList.add('currentLyc');
+              Spans[index-1].classList.remove('currentLyc');
+              Con.style.top=(-35)*index+'px';
+            }
           }
         }
       },
@@ -275,6 +276,16 @@
     overflow: hidden;
     background: url('https://y.gtimg.cn/music/photo_new/T001R150x150M000003Nz2So3XXYek.jpg?max_age=2592000') no-repeat;
     background-size: cover;
+    -webkit-animation:changeIn 0.3s ease-in-out;
+  }
+  @keyframes changeIn {
+    from {
+      -webkit-transform:scale(0);
+
+    }
+    to{
+      -webkit-transform:scale(1);
+    }
   }
   #back{
     width: 100%;
