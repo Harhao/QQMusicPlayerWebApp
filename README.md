@@ -25,6 +25,6 @@
     - search搜索页面运行效果:
         - ![search](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/search.PNG)
     - detail页面运行效果:
-        - ![detail](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/detail.PNG)
-     
+        - ![detail](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/lyric.PNG) ![rotate](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/rotate.PNG)
+        - ![global](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/global.PNG) ![store](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/store.PNG)
 > 未完待续中，音乐的专辑列表播放页，以及歌手详情页待续开发
