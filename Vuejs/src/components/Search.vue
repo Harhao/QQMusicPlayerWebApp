@@ -17,51 +17,51 @@
 
 <script type="text/ecmascript-6">
   import history from './history.vue';
-export default {
-  components:{
-    history
-  },
- 	data(){
- 		return{
-      data:{
-        hotKeys:[{
-          title:"梦想的声音第二季",
-          href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
-        },{
-          title:"DJ舞曲(华语)系列5 DJ ",
-          href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
-        },{
-          title:"紫",
-          href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
-        },{
-          title:"野子",
-          href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
-        },{
-          title:"男人不该让女人流泪",
-          href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
-        },{
-          title:"DJ",
-          href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
-        }]
+  export default {
+      components:{
+        history
+      },
+     	data(){
+     		return{
+          data:{
+            hotKeys:[{
+              title:"梦想的声音第二季",
+              href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
+            },{
+              title:"DJ舞曲(华语)系列5 DJ ",
+              href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
+            },{
+              title:"紫",
+              href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
+            },{
+              title:"野子",
+              href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
+            },{
+              title:"男人不该让女人流泪",
+              href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
+            },{
+              title:"DJ",
+              href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
+            }]
+          }
+     		};
+     	},
+      methods:{
+        sendData(event){
+          event.target.style.display="none";
+        },
+        focusHandle(event){
+          document.getElementById('submit').style.display="inline-block";
+          document.getElementById('hotKey').style.display="none";
+          document.getElementsByClassName('history')[0].style.display="block";
+        },
+        blurHandle(){
+          document.getElementById('hotKey').style.display="block";
+          document.getElementsByClassName('history')[0].style.display="none";
+          document.getElementById('submit').style.display="none";
+        }
       }
- 		};
- 	},
-  methods:{
-    sendData(event){
-      event.target.style.display="none";
-    },
-    focusHandle(event){
-      document.getElementById('submit').style.display="inline-block";
-      document.getElementById('hotKey').style.display="none";
-      document.getElementsByClassName('history')[0].style.display="block";
-    },
-    blurHandle(){
-      document.getElementById('hotKey').style.display="block";
-      document.getElementsByClassName('history')[0].style.display="none";
-      document.getElementById('submit').style.display="none";
     }
-  }
-}
 </script>
 
 <style>

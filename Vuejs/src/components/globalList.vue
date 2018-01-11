@@ -6,6 +6,7 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
+    import operateFunctions from '../common/musicOperate';
     export default{
         components: {},
         data(){
@@ -23,7 +24,9 @@
           addToPlay(event){
             var index=event.target.getAttribute('key');
             this.$store.commit('changeList',index);
-          }
+            this.play();
+          },
+          ...operateFunctions
         }
     }
 </script>
