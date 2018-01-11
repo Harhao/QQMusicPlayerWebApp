@@ -5,7 +5,7 @@
     <keep-alive><router-view></router-view></keep-alive>
     <musicDetail></musicDetail>
     <audioPane></audioPane>
-    <audio id="play"  :src="songPlayList[0].songSrc" preload ></audio>
+    <audio id="play"  :src="songPlayList[0].songSrc" autoplay @ended="nextSong" @error="nextSong"></audio>
   </div>
 </template>
 
@@ -18,6 +18,23 @@ export default {
       Mheader,
       audioPane,
       musicDetail,
+    },
+    methods: {
+      nextSong(){
+        var audio=document.getElementById('play');
+        if(this.$store.state.songPlayList){
+          this.$store.commit("nextSong",1);
+          if(!this.toggle){
+            var state=!this.toggle;
+            this.$store.commit('changeTog',state);
+          }
+          audio.load();
+          audio.play();
+        }else{
+          console.log("not found this song");
+        }
+
+      }
     },
   computed:{
     songPlayList(){

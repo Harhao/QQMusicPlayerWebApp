@@ -50,7 +50,7 @@
           var state=!this.toggle;
           this.$store.commit('changeTog',state);
         }
-        audio.pause();
+        audio.load();
         audio.play();
       },
       prevSong(){
@@ -60,7 +60,7 @@
           var state=!this.toggle;
           this.$store.commit('changeTog',state);
         }
-        audio.pause();
+        audio.load();
         audio.play();
       }
     }

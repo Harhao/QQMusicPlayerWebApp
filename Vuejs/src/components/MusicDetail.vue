@@ -59,8 +59,8 @@
     },
     data(){
       return {
-        duration:'',
-        currentTime:'',
+        duration:'00:00',
+        currentTime:'00:00',
         show:false,
         count:0,
         startY:0,
