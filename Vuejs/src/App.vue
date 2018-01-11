@@ -5,7 +5,7 @@
     <keep-alive><router-view></router-view></keep-alive>
     <musicDetail></musicDetail>
     <audioPane></audioPane>
-    <audio id="play"  :src="songPlayList[0].songSrc" autoplay @ended="nextSong" @error="nextSong"></audio>
+    <audio id="play"  :src="songPlayList[0].songSrc" @ended="nextSong" @error="nextSong" preload="auto"></audio>
   </div>
 </template>
 
@@ -21,15 +21,18 @@ export default {
     },
     methods: {
       nextSong(){
-        var audio=document.getElementById('play');
+
         if(this.$store.state.songPlayList){
           this.$store.commit("nextSong",1);
+          var audio=document.getElementById('play');
+          audio.addEventListener("canplaythrough", function(){
+              audio.play();
+          },false);
           if(!this.toggle){
             var state=!this.toggle;
             this.$store.commit('changeTog',state);
           }
-          audio.load();
-          audio.play();
+
         }else{
           console.log("not found this song");
         }

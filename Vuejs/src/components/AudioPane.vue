@@ -44,24 +44,30 @@
 
       },
       nextSong(){
-        var audio=document.getElementById('play');
-        this.$store.commit("nextSong",1);
-        if(!this.toggle){
-          var state=!this.toggle;
-          this.$store.commit('changeTog',state);
+        if(this.$store.state.songPlayList){
+          this.$store.commit("nextSong",1);
+          var audio=document.getElementById('play');
+          audio.addEventListener("canplaythrough", function(){
+              audio.play();
+          },false);
+          if(!this.toggle){
+            var state=!this.toggle;
+            this.$store.commit('changeTog',state);
+          }
+
         }
-        audio.load();
-        audio.play();
       },
       prevSong(){
-        var audio=document.getElementById('play');
+
         this.$store.commit("prevSong",1);
+        var audio=document.getElementById('play');
+        audio.addEventListener("canplaythrough", function(){
+            audio.play();
+        },false);
         if(!this.toggle){
           var state=!this.toggle;
           this.$store.commit('changeTog',state);
         }
-        audio.load();
-        audio.play();
       }
     }
   }

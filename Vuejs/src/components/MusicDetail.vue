@@ -293,7 +293,7 @@
     overflow: hidden;
     background: url('https://y.gtimg.cn/music/photo_new/T001R150x150M000003Nz2So3XXYek.jpg?max_age=2592000') no-repeat;
     background-size: cover;
-    -webkit-animation:changeIn 0.3s ease-in-out;
+    -webkit-animation:changeIn 0.2s ease-in-out;
   }
   @keyframes changeIn {
     from {
