@@ -31,8 +31,10 @@ let operateFunctions={
 
     this.$store.commit("prevSong",1);
     var audio=document.getElementById('play');
+    console.log("playing");
     audio.addEventListener("canplaythrough", function(){
         audio.play();
+        // console.log("playing");
     },false);
     if(!this.toggle){
       var state=!this.toggle;

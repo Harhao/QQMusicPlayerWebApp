@@ -26,16 +26,11 @@ const store =new Vuex.Store({
       state.toggle=toggle;
     },
     nextSong(state,num){
-      if(state.songPlayList.length==1){
-        return ;
-      }
       var prevSong=state.songPlayList.shift();
       state.prevPlayList.push(prevSong);
     },
     prevSong(state,num){
-      if(state.prevPlayList.length==1){
-        return ;
-      }
+
       var stackTop=state.prevPlayList.pop();
       state.songPlayList.unshift(stackTop);
     },
