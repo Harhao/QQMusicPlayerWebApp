@@ -132,7 +132,6 @@
           audio.pause();
         }else{
           var state=!this.toggle;
-          console.log(this.toggle);
           this.$store.commit('changeTog',state);
           audio.play();
         }
@@ -218,11 +217,9 @@
         if(localStorage.getItem(this.songPlayList[0].songName)){
           event.target.classList.remove('store');
           localStorage.removeItem(this.songPlayList[0].songName);
-          console.log('cancel done');
         }else{
           localStorage.setItem(this.songPlayList[0].songName,this.songPlayList[0]);
           event.target.classList.add('store');
-          console.log('store done');
         }
 
       },
@@ -257,7 +254,6 @@
       },
       start(event){
         this.startY=event.touches[0].pageY;
-        console.log("start");
       },
       move(event){
         event.preventDefault();
@@ -293,15 +289,21 @@
     overflow: hidden;
     background: url('https://y.gtimg.cn/music/photo_new/T001R150x150M000003Nz2So3XXYek.jpg?max_age=2592000') no-repeat;
     background-size: cover;
-    -webkit-animation:changeIn 0.2s ease-in-out;
+    /* -webkit-transition-origin: bottom left; */
+    -webkit-animation:changeIn 0.5s ease-in-out;
   }
+
   @keyframes changeIn {
     from {
-      -webkit-transform:scale(0);
+      /* -webkit-transform:scale(0); */
+      -webkit-transform: scale(0, 0);
+    -webkit-transform-origin: bottom left;
 
     }
     to{
-      -webkit-transform:scale(1);
+      /* -webkit-transform:scale(1); */
+      -webkit-transform: scale(1, 1);
+      -webkit-transform-origin: top right;
     }
   }
   #back{

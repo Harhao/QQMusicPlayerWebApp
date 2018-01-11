@@ -11,6 +11,7 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
+  import operateFunctions from '../common/musicOperate';
   export default {
     data(){
       return{
@@ -29,46 +30,7 @@
         document.getElementById('musicPlayer').style.display="block";
         document.documentElement.style.overflow="hidden";
       },
-      play(event){
-        var audio=document.getElementById('play');
-        //未播放
-        if(!this.toggle){
-          var state=!this.toggle;
-          this.$store.commit('changeTog',state);
-          audio.play();
-        }else{
-          var state=!this.toggle;
-          this.$store.commit('changeTog',state);
-          audio.pause();
-        }
-
-      },
-      nextSong(){
-        if(this.$store.state.songPlayList){
-          this.$store.commit("nextSong",1);
-          var audio=document.getElementById('play');
-          audio.addEventListener("canplaythrough", function(){
-              audio.play();
-          },false);
-          if(!this.toggle){
-            var state=!this.toggle;
-            this.$store.commit('changeTog',state);
-          }
-
-        }
-      },
-      prevSong(){
-
-        this.$store.commit("prevSong",1);
-        var audio=document.getElementById('play');
-        audio.addEventListener("canplaythrough", function(){
-            audio.play();
-        },false);
-        if(!this.toggle){
-          var state=!this.toggle;
-          this.$store.commit('changeTog',state);
-        }
-      }
+      ...operateFunctions
     }
   }
 </script>

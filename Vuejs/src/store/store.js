@@ -34,9 +34,9 @@ const store =new Vuex.Store({
       state.songPlayList.unshift(stackTop);
     },
     changeList(state,index){
+
       var song=state.songPlayList.splice(index,1);
-      state.songPlayList.unshift(song);
-      console.log(state.songPlayList);
+      state.songPlayList.unshift(song[0]);
     },
     addSong(state,data){
       for(var i=0;i<data.length;i++){

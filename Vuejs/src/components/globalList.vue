@@ -1,7 +1,7 @@
 <template>
     <div id="globalList">
       <ul>
-        <li  v-for="(item,index) in songLists" @click="addToPlay" :data-index="index">{{item.songName}}-{{item.singer}}</li>
+        <li  v-for="(item,index) in songLists" @click="addToPlay" v-bind:Key="index" >{{item.songName}}-{{item.singer}}</li>
       </ul>
     </div>
 </template>
@@ -21,7 +21,7 @@
         },
         methods: {
           addToPlay(event){
-            var index=event.target.getAttribute('data-index');
+            var index=event.target.getAttribute('key');
             this.$store.commit('changeList',index);
           }
         }
@@ -36,7 +36,7 @@
   }
   #globalList{
     width: 100%;
-    height:0px;
+    height: 0px;
     position: absolute;
     bottom: 0;
     background-color: #080708;
