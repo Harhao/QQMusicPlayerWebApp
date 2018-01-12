@@ -2,14 +2,14 @@
 <template>
   <div id="tabContent">
     <ul>
-      <li v-for="item in lists" @click="redirect(item.src)">
+      <li v-for="item in lists" @click="redirect(item.id)">
             <div class="image">
-              <img v-bind:src="item.source"/>
-              <span class="erMai">{{item.count}}</span>
+              <img v-bind:src="item.picUrl"/>
+              <span class="erMai">{{item.listenCount}}</span>
             </div>
             <div class="content1">
-              <h3>{{item.title}}</h3>
-              <div v-for="(songItem,index) in item.famous"><span class="index">{{index+1}}</span> {{songItem.songName}}-{{songItem.author}}</div>
+              <h3>{{item.topTitle}}</h3>
+              <div v-for="(songItem,index) in item.songList"><span class="index">{{index+1}}</span> {{songItem.songname}}-{{songItem.singername}}</div>
             </div>
             <div class="icon1">
               <span></span>
@@ -23,157 +23,20 @@
 export default {
   data(){
     return {
-      lists:[{
-        "source":"https://y.gtimg.cn/music/common/upload/iphone_order_channel/toplist_4_300_212449089.jpg?max_age=2592000",
-        "title":"安利XS·巅峰榜·流行指数",
-        "count":"2000万",
-        "src":"https://y.qq.com/w/toplist.html?ADTAG=myqq&from=myqq&channel=10007100&id=4&type=top",
-        "famous":[{
-          "songName":"凤凰于飞 (Live)",
-          "author":"林俊杰"
-        },{
-          "songName":"躲猫猫",
-          "author":"TF-BOY"
-        },{
-          "songName":"一人饮酒醉 (Live)",
-          "author":"华晨宇"
-        }]
-
-      },{
-        "source":"https://y.gtimg.cn/music/common/upload/iphone_order_channel/toplist_26_300_212444165.jpg?max_age=2592000",
-        "title":"安利XS·巅峰榜·流行指数",
-        "count":"2000万",
-        "src":"/#/comment",
-        "famous":[{
-          "songName":"凤凰于飞 (Live)",
-          "author":"林俊杰"
-        },{
-          "songName":"躲猫猫",
-          "author":"TF-BOY"
-        },{
-          "songName":"一人饮酒醉 (Live)",
-          "author":"华晨宇"
-        }]
-
-      },{
-        "source":"https://y.gtimg.cn/music/common/upload/iphone_order_channel/toplist_27_300_212656017.jpg?max_age=2592000",
-        "title":"安利XS·巅峰榜·流行指数",
-        "count":"2000万",
-        "src":"/#/comment",
-        "famous":[{
-          "songName":"凤凰于飞 (Live)",
-          "author":"林俊杰"
-        },{
-          "songName":"躲猫猫",
-          "author":"TF-BOY"
-        },{
-          "songName":"一人饮酒醉 (Live)",
-          "author":"华晨宇"
-        }]
-
-      },{
-        "source":"https://y.gtimg.cn/music/common/upload/iphone_order_channel/toplist_30_300_212634056.jpg?max_age=2592000",
-        "title":"安利XS·巅峰榜·流行指数",
-        "count":"2000万",
-        "src":"/#/comment",
-        "famous":[{
-          "songName":"凤凰于飞 (Live)",
-          "author":"林俊杰"
-        },{
-          "songName":"躲猫猫",
-          "author":"TF-BOY"
-        },{
-          "songName":"一人饮酒醉 (Live)",
-          "author":"华晨宇"
-        }]
-
-      },{
-        "source":"https://y.gtimg.cn/music/common/upload/iphone_order_channel/toplist_30_300_212634056.jpg?max_age=2592000",
-        "title":"安利XS·巅峰榜·流行指数",
-        "count":"2000万",
-        "src":"/#/comment",
-        "famous":[{
-          "songName":"凤凰于飞 (Live)",
-          "author":"林俊杰"
-        },{
-          "songName":"躲猫猫",
-          "author":"TF-BOY"
-        },{
-          "songName":"一人饮酒醉 (Live)",
-          "author":"华晨宇"
-        }]
-
-      },{
-        "source":"https://y.gtimg.cn/music/common/upload/iphone_order_channel/toplist_30_300_212634056.jpg?max_age=2592000",
-        "title":"安利XS·巅峰榜·流行指数",
-        "count":"2000万",
-        "src":"/#/comment",
-        "famous":[{
-          "songName":"凤凰于飞 (Live)",
-          "author":"林俊杰"
-        },{
-          "songName":"躲猫猫",
-          "author":"TF-BOY"
-        },{
-          "songName":"一人饮酒醉 (Live)",
-          "author":"华晨宇"
-        }]
-
-      },{
-        "source":"https://y.gtimg.cn/music/common/upload/iphone_order_channel/toplist_30_300_212634056.jpg?max_age=2592000",
-        "title":"安利XS·巅峰榜·流行指数",
-        "count":"2000万",
-        "src":"/#/comment",
-        "famous":[{
-          "songName":"凤凰于飞 (Live)",
-          "author":"林俊杰"
-        },{
-          "songName":"躲猫猫",
-          "author":"TF-BOY"
-        },{
-          "songName":"一人饮酒醉 (Live)",
-          "author":"华晨宇"
-        }]
-
-      },{
-        "source":"https://y.gtimg.cn/music/common/upload/iphone_order_channel/toplist_30_300_212634056.jpg?max_age=2592000",
-        "title":"安利XS·巅峰榜·流行指数",
-        "count":"2000万",
-        "src":"/#/comment",
-        "famous":[{
-          "songName":"凤凰于飞 (Live)",
-          "author":"林俊杰"
-        },{
-          "songName":"躲猫猫",
-          "author":"TF-BOY"
-        },{
-          "songName":"一人饮酒醉 (Live)",
-          "author":"华晨宇"
-        }]
-
-      },{
-        "source":"https://y.gtimg.cn/music/common/upload/iphone_order_channel/toplist_30_300_212634056.jpg?max_age=2592000",
-        "title":"安利XS·巅峰榜·流行指数",
-        "count":"2000万",
-        "src":"/#/comment",
-        "famous":[{
-          "songName":"凤凰于飞 (Live)",
-          "author":"林俊杰"
-        },{
-          "songName":"躲猫猫",
-          "author":"TF-BOY"
-        },{
-          "songName":"一人饮酒醉 (Live)",
-          "author":"华晨宇"
-        }]
-
-      }]
+      lists:""
     }
 
   },
+  created(){
+    this.$http.get("http://localhost:3000/toplist").then((response)=>{
+      this.lists=response.data.data.topList;
+    }).catch((e)=>{
+      console.log(e);
+    });
+  },
   methods:{
-    redirect(src){
-      window.location.href=src;
+    redirect(id){
+      window.location.href="https://y.qq.com/w/toplist.html?ADTAG=myqq&from=myqq&channel=10007100&id="+id+"&type=top";
     }
   }
 }
@@ -231,6 +94,7 @@ body{
     flex: 6;
     flex-direction: column;
     padding: 2%;
+    overflow:hidden;
   }
 
   .content1 h3 {
@@ -340,6 +204,7 @@ body{
     flex: 6;
     flex-direction: column;
     padding: 2%;
+    overflow:hidden;
   }
 
   .content1 h3 {

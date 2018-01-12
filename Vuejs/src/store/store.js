@@ -9,15 +9,29 @@ const store =new Vuex.Store({
   state:{
     toggle:false,
     songPlayList:[{
+      mid:'123',
       singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
       songName:"说散就散",
       singer:"袁娅维",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400003vUjJp3QwFcd.m4a?guid=895385890&vkey=1C910A6B64F39DE253B5E08E9C700E6C5CBD2AE6633539EBF81DD4D49BC95D1C0D41DCB87C8C30243FCB54703C9049B7501AD7D7BEE55B99&uin=&fromtag=999"
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400003vUjJp3QwFcd.m4a?vkey=E2CA0056E83D3A0CFDD4E8BE4473F04AAF84379942CD59CF26C3A6B951617517B5CBAC55C03BE694082A2894F5957DF7E54AFB7F82BE7572&guid=895385890&uin=0&fromtag=66"
     },{
+      mid:'124',
       singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
       songName:"体面",
       singer:"袁娅维",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400000Md1wq0vnwzE.m4a?fromtag=38&vkey=81AEB6C6D7085AB4AA793BCF2D864A19D621D5D982A0C6F6E58BFF40553BDD711355610E02D9394EE8DC4045E29C863BBFD70B25CAD9EF05&guid=895385890"
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400000Md1wq0vnwzE.m4a?fromtag=38&vkey=ECC40B2D3B466C8785BDAD4BF3CA27DC51A04CDFCA0C73ADE9B5DFC99BCE4C43412D4FAD0FF0C8BB6843D663037758642B661D129A8BB76E&guid=895385890"
+    },{
+      mid:'123',
+      singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
+      songName:"说散就散",
+      singer:"袁娅维",
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400003vUjJp3QwFcd.m4a?vkey=E2CA0056E83D3A0CFDD4E8BE4473F04AAF84379942CD59CF26C3A6B951617517B5CBAC55C03BE694082A2894F5957DF7E54AFB7F82BE7572&guid=895385890&uin=0&fromtag=66"
+    },{
+      mid:'124',
+      singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
+      songName:"体面",
+      singer:"袁娅维",
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400000Md1wq0vnwzE.m4a?fromtag=38&vkey=ECC40B2D3B466C8785BDAD4BF3CA27DC51A04CDFCA0C73ADE9B5DFC99BCE4C43412D4FAD0FF0C8BB6843D663037758642B661D129A8BB76E&guid=895385890"
     }],
     prevPlayList:[],
   },

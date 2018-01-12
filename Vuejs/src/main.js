@@ -3,10 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueAwesomeSwiper from 'vue-awesome-swiper';
 import axios from 'axios'
 import Vuex from 'vuex'
 import store from './store/store.js'
+import VueAwesomeSwiper from 'vue-awesome-swiper';
 Vue.use(Vuex)
 Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false

@@ -49,13 +49,17 @@
         </div>
       </div>
       <globalList></globalList>
+      <loading :finish="downloaded"></loading>
+      <!-- <loading></loading> -->
     </div>
 </template>
 <script type="text/ecmascript-6">
   import globalList from './globalList.vue';
+  import loading from './loading.vue'
   export default{
     components:{
-      globalList
+      globalList,
+      loading
     },
     data(){
       return {
@@ -65,7 +69,8 @@
         count:0,
         startY:0,
         moveY:0,
-        endY:0
+        endY:0,
+        downloaded:false
       }
     },
     computed:{
@@ -77,7 +82,7 @@
       },
       lyric(){
           let globalArr=[];
-          this.$http.get("http://localhost:3000/lyrics").then((response)=>{
+          this.$http.get("http://localhost:3000/lyrics?id="+this.songPlayList[0].mid).then((response)=>{
               let lyric=response.data.lyric;
               let tmpLyric=this.formatLyric(lyric);
               let Arr=tmpLyric.split('\n');
@@ -165,6 +170,7 @@
       getDuration(){
         var audio=document.getElementById('play');
         var duration=this.formatTime(audio.duration,audio);
+        this.downloaded=true;
         this.duration=duration;
       },
       addEventListeners(){
@@ -233,12 +239,11 @@
       	document.getElementById("avatar").classList.remove('hide');
       },
       formatLyric(lyric){
-        var str=lyric.replace(/&#58;/g,':');
-        str=str.replace(/&#46;/g,'.');
-        str=str.replace(/&#13;/g,'\n');
-        str=str.replace(/&#10;/g,'');
-        str=str.replace(/(&#32;)|(&#40;)|(&#45;)|(&#41;)/g,'');
-        return str;
+          var str=lyric.replace(/&#58;/g,":");
+          str=str.replace(/&#46;/g,'.');
+          str=str.replace(/&#10;/g,'\n');
+          str=str.replace(/&#\d+;/g,'');
+          return str;
       },
       addToContent(obj){
         var div=document.getElementById('custom');
@@ -290,7 +295,7 @@
     background: url('https://y.gtimg.cn/music/photo_new/T001R150x150M000003Nz2So3XXYek.jpg?max_age=2592000') no-repeat;
     background-size: cover;
     /* -webkit-transition-origin: bottom left; */
-    -webkit-animation:changeIn 0.5s ease-in-out;
+    -webkit-animation:changeIn 0.3s ease-in-out;
   }
 
   @keyframes changeIn {

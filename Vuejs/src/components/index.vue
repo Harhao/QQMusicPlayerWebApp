@@ -2,7 +2,7 @@
 	<div class="wrapper">
 		<swiper :options="swiperOption" ref="mySwiperA">
 			<swiper-slide v-for="item in imgArray">
-				<img class="player" v-bind:src="item.source"/>
+				<img class="player" v-bind:src="item.picUrl"/>
 			</swiper-slide>
 		</swiper>
 		<div class="lists" v-for="item in musicMenu">
@@ -20,83 +20,89 @@
 			</div>
 		</div>
 		<Mfooter></Mfooter>
+		<loading :finish="downloaded"></loading>
 	</div>
 </template>
 <script type="text/ecmascript-6">
 	import 'swiper/dist/css/swiper.css'
 	import {swiper,swiperSlide} from "vue-awesome-swiper"
 	import Mfooter from '@/components/my-footer'
+	import loading from '@/components/loading'
 	export default{
 		components: {
             	swiper,
             	swiperSlide,
-            	Mfooter
+            	Mfooter,
+							loading
         },
 		data(){
 			return {
-        swiperOption: {
+        		swiperOption: {
 				// 所有配置均为可选（同Swiper配置）
 					//direction: 'vertical',
-    				loop: true,
-    				autoplay:2000,
+    				initialSlide :0,
+		            pagination: '.swiper-pagination',
+		            loop: true,
+		            speed: 400,
+		            autoplay: true,
+		            autoplayDisableOnInteraction: false,
 				},
-				imgArray:[{
-					source:"https://y.gtimg.cn/music/photo_new/T003R720x288M000002n6Zxs2rVEHO.jpg?max_age=2592000"
-				},{
-					source:"https://y.gtimg.cn/music/photo_new/T003R720x288M000002mHeKg3VEVvq.jpg?max_age=2592000"
-				},{
-					source:"https://y.gtimg.cn/music/photo_new/T003R720x288M000003sAJCh1ynM0x.jpg?max_age=2592000"
-				},{
-					source:"https://y.gtimg.cn/music/photo_new/T003R720x288M000000B8wHB1Si6Iz.jpg?max_age=2592000"
-				},{
-					source:"https://y.gtimg.cn/music/photo_new/T003R720x288M000002ZjiJg0jKc1w.jpg?max_age=2592000"
-				}],
+				imgArray:"",
 				musicMenu:[{
 					"title":"电台",
 					"musicItem":[{
 						"img":"https://y.gtimg.cn/music/photo/radio/track_radio_199_13_1.jpg?max_age=2592000",
 						"desc":"热歌",
-            "href":"http://localhost:8080/player"
+            			"href":"http://localhost:8080/player"
 					},{
 						"img":"https://y.gtimg.cn/music/photo/radio/track_radio_199_13_1.jpg?max_age=2592000",
 						"desc":"热歌",
-            "href":""
+            			"href":""
 					}]
 				},{
 					"title":"热门歌单",
 					"musicItem":[{
 						"img":"https://y.gtimg.cn/music/photo_new/T006R300x300M00000333So02drvak.jpg?max_age=2592000",
 						"desc":"催泪大杀器！盘点演唱会经典万人大合唱",
-            "href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=2646688496"
+            			"href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=2646688496"
 					},{
 						"img":"https://y.gtimg.cn/music/photo_new/T006R300x300M0000013j8zs1jRnLQ.jpg?max_age=2592000",
 						"desc":"纳尼？这些华语歌手竟然会唱日语歌！",
-            "href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=1144416825"
+            			"href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=1144416825"
 					}]
 				},{
 					"title":"动听音乐",
 					"musicItem":[{
 						"img":"https://y.gtimg.cn/music/photo_new/T006R300x300M000004bFmjW2PXSqF.jpg?max_age=2592000",
 						"desc":"精选内地十大民谣歌手代表作",
-            "href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=2043041547"
+            			"href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=2043041547"
 					},{
 						"img":"https://y.gtimg.cn/music/photo_new/T006R300x300M0000032Ubid2ses0e.jpg?max_age=2592000",
 						"desc":"2016Billboard嘻哈榜精选",
-            "href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=2040362185"
+            			"href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=2040362185"
 					}]
 				},{
 					"title":"动漫",
 					"musicItem":[{
 						"img":"https://y.gtimg.cn/music/photo_new/T006R300x300M000000xFtbN1l8ye8.jpg?max_age=2592000",
 						"desc":"浮光掠影：ACG纯音乐赏析合辑",
-            "href":"https:////y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=1723063372"
+            			"href":"https:////y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=1723063372"
 					},{
 						"img":"https://y.gtimg.cn/music/photo_new/T006R300x300M000000xFtbN1l8ye8.jpg?max_age=2592000",
 						"desc":"trip-hop单曲大推荐",
-            "href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=3482605622"
+            			"href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=3482605622"
 					}]
-				}]
+				}],
+				downloaded:false
             }
+		},
+		created(){
+			this.$http.get("http://localhost:3000/home").then((response)=>{
+				this.imgArray=response.data.data.slider;
+				this.downloaded=true;
+			}).catch((e)=>{
+				console.log(e);
+			});
 		}
 	}
 </script>
