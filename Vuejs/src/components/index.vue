@@ -4,6 +4,7 @@
 			<swiper-slide v-for="item in imgArray">
 				<img class="player" v-bind:src="item.picUrl"/>
 			</swiper-slide>
+			<div class="swiper-pagination"  slot="pagination"></div>
 		</swiper>
 		<div class="lists" v-for="item in musicMenu">
 			<div class="title">{{item.title}}</div>
@@ -45,7 +46,7 @@
 		            loop: true,
 		            speed: 400,
 		            autoplay: true,
-		            autoplayDisableOnInteraction: false,
+		            paginationClickable: true,
 				},
 				imgArray:"",
 				musicMenu:[{
@@ -164,6 +165,7 @@
 		font-size:14px;
 		padding:5px;
 		height:36px;
+		color: #333;
 	}
 	#footer{
 
