@@ -18,13 +18,9 @@
     npm run build
     ```
 - 运行效果如下所示:
-    - 推荐页运行效果:
-        - ![index](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/index.PNG)
-    - list列表页运行效果:
-        - ![list](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/list.PNG)
-    - search搜索页面运行效果:
-        - ![search](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/search.PNG)
+    - 运行效果:
+        - ![index](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/1.gif?raw=true)
     - detail页面运行效果:
-        - ![detail](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/lyric.PNG) ![rotate](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/rotate.PNG)
-        - ![global](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/global.PNG) ![store](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/store.PNG)
+        - ![detail](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/1.PNG) ![rotate](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/2.PNG)
+        - ![global](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/3.PNG) ![store](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/4.PNG)
 > 未完待续中，音乐的专辑列表播放页，以及歌手详情页待续开发
