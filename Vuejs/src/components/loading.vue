@@ -14,7 +14,6 @@
         },
         computed:{
           finished(){
-            console.log(this.finish);
             return this.finish;
           }
         }
@@ -46,7 +45,7 @@
     display: flex;
     align-self: center;
     justify-content: center;
-    -webkit-animation: rotate 1s linear infinite;
+    -webkit-animation: rotate 0.5s linear infinite;
 
   }
   @keyframes rotate {

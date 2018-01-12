@@ -50,7 +50,8 @@
       </div>
       <globalList></globalList>
       <loading :finish="downloaded"></loading>
-      <!-- <loading></loading> -->
+      <div id="mask"></div>
+      <div id="glass"><img :src="songPlayList[0].singerAvartar"/></div>
     </div>
 </template>
 <script type="text/ecmascript-6">
@@ -292,8 +293,8 @@
     z-index:999;
     display: none;
     overflow: hidden;
-    background: url('https://y.gtimg.cn/music/photo_new/T001R150x150M000003Nz2So3XXYek.jpg?max_age=2592000') no-repeat;
-    background-size: cover;
+    /* background: url('https://y.gtimg.cn/music/photo_new/T001R150x150M000003Nz2So3XXYek.jpg?max_age=2592000') no-repeat; */
+    /* background-size: cover; */
     /* -webkit-transition-origin: bottom left; */
     -webkit-animation:changeIn 0.3s ease-in-out;
   }
@@ -406,6 +407,8 @@
     /* height:250px;
     overflow-y: scroll; */
     -webkit-transition:top 0.3s ease-in-out;
+    left:0;
+    right: 0;
 
   }
   #custom p span{
@@ -552,4 +555,34 @@
   .hide{
     display: none !important;
   }
+  #glass{
+    position: absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -100;
+
+  }
+    #glass img{
+      width: 100vw;
+      height: 100vh;
+      -webkit-filter: blur(10px);
+      transform: scale(1.5);
+
+    }
+    #mask{
+      position: absolute;
+      top:0;
+      left:0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      opacity: 0.7;
+      z-index: -99;
+    }
 </style>
