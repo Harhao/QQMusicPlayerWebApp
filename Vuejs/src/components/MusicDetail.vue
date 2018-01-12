@@ -49,7 +49,7 @@
         </div>
       </div>
       <globalList></globalList>
-      <!-- <loading :finish="downloaded"></loading> -->
+      <loading :finish="downloaded"></loading>
       <div id="mask"></div>
       <div id="glass"><img :src="songPlayList[0].singerAvartar"/></div>
     </div>
@@ -114,6 +114,7 @@
           }).catch((e)=>{
             console.log(e);
           });
+          this.downloaded=true;
           return globalArr;
       }
     },
@@ -171,7 +172,6 @@
       getDuration(){
         var audio=document.getElementById('play');
         var duration=this.formatTime(audio.duration,audio);
-        this.downloaded=true;
         this.duration=duration;
       },
       addEventListeners(){
