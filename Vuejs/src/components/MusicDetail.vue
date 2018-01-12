@@ -49,7 +49,7 @@
         </div>
       </div>
       <globalList></globalList>
-      <loading :finish="downloaded"></loading>
+      <!-- <loading :finish="downloaded"></loading> -->
       <div id="mask"></div>
       <div id="glass"><img :src="songPlayList[0].singerAvartar"/></div>
     </div>
@@ -521,12 +521,7 @@
     color: #fff;
     justify-content: center;
     align-self: center;
-  }
-  .startTime{
-    margin: 0 10px;
-  }
-  .endTime{
-    margin: 0 10px;
+    margin: 0 20px;
   }
   .progress{
     position: relative;
