@@ -10,10 +10,10 @@ const store =new Vuex.Store({
     toggle:false,
     songPlayList:[{
       mid:'123',
-      singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
-      songName:"说散就散",
-      singer:"袁娅维",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400003vUjJp3QwFcd.m4a?vkey=E2CA0056E83D3A0CFDD4E8BE4473F04AAF84379942CD59CF26C3A6B951617517B5CBAC55C03BE694082A2894F5957DF7E54AFB7F82BE7572&guid=895385890&uin=0&fromtag=66"
+      singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R150x150M000001vVSiX0qzGgo.jpg?max_age=2592000",
+      songName:"风继续吹",
+      singer:"伊正",
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400000ImWRb0lodP3.m4a?fromtag=38&vkey=5469A1BAFBF593A94FB797C1A43C0446BF385F26BEDF826789D62A4A5A8E7D0E0489297F782D1B701D731353678D308ED74C4C600CF68293&guid=895385890"
     },{
       mid:'125',
       singerAvartar:"https://y.gtimg.cn/music/photo_new/T006R300x300M00000333So02drvak.jpg?max_age=2592000",
