@@ -2,7 +2,7 @@
 <template>
   <div id="tabContent">
     <ul>
-      <li v-for="item in lists" @click="redirect(item.id)">
+      <router-link v-for="item in lists" :to="{path:'/toplist',query:{data:item}}" tag="li">
             <div class="image">
               <img v-bind:src="item.picUrl"/>
               <span class="erMai">{{item.listenCount}}</span>
@@ -14,7 +14,7 @@
             <div class="icon1">
               <span></span>
             </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -35,9 +35,7 @@ export default {
     });
   },
   methods:{
-    redirect(id){
-      window.location.href="https://y.qq.com/w/toplist.html?ADTAG=myqq&from=myqq&channel=10007100&id="+id+"&type=top";
-    }
+   
   }
 }
 </script>

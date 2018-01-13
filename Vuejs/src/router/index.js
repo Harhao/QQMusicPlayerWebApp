@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from "@/components/index"
 import List from "@/components/List"
 import Search from "@/components/Search"
+import Toplist from "@/components/toplist"
 Vue.use(Router)
 export default new Router({
   mode: 'history',
@@ -23,5 +24,8 @@ export default new Router({
       path: '/search',
       name: 'Search',
       component: Search
+    },{
+      path:"/toplist",
+      component:Toplist
     }]
 })

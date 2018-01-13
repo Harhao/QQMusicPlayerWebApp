@@ -296,20 +296,21 @@
     /* background: url('https://y.gtimg.cn/music/photo_new/T001R150x150M000003Nz2So3XXYek.jpg?max_age=2592000') no-repeat; */
     /* background-size: cover; */
     /* -webkit-transition-origin: bottom left; */
+    -webkit-transform-origin: bottom left;
     -webkit-animation:changeIn 0.3s ease-in-out;
   }
 
   @keyframes changeIn {
     from {
-      /* -webkit-transform:scale(0); */
-      -webkit-transform: scale(0, 0);
-    -webkit-transform-origin: bottom left;
-
+      /*-webkit-transform: scale(0, 0);
+    -webkit-transform-origin: bottom left;*/
+    -webkit-transform:rotate(90deg);
     }
     to{
-      /* -webkit-transform:scale(1); */
-      -webkit-transform: scale(1, 1);
-      -webkit-transform-origin: top right;
+      /*-webkit-transform: scale(1, 1);
+      -webkit-transform-origin: top right;*/
+      -webkit-transform:rotate(0deg);
+      
     }
   }
   #back{
