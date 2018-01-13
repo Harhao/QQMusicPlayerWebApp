@@ -27,5 +27,8 @@ export default new Router({
     },{
       path:"/toplist",
       component:Toplist
+    },{
+      path:"*",
+      redirect:"/recomment"
     }]
 })

@@ -1,5 +1,44 @@
 <template>
-    <div class="toplist">{{params}}</div>
+    <div class="toplist">
+        <div id="listHeader">
+            <div id="bg"><img :src="params.picUrl"/></div>
+            <div id="albumMask"></div>
+            <div class="topHeader">
+                <div class="musicLogo"></div>
+                <div class="tipTitle">
+                  <span>QQ音乐</span>
+                  <span>打开APP收藏、下载</span>
+                </div>
+                <div id="open">打开</div>
+            </div>
+            <div class="albumSection">
+              <div class="albumImg">
+                <img :src="params.picUrl"/>
+              </div>
+              <div id="albumContent">
+                <h3>{{params.topTitle}}</h3>
+                <p>第一周</p>
+                <p>2018年1月11更新</p>
+              </div>
+            </div>
+            <div class="bottomHeader">
+              <div id="allPlay"><button id="getAll">全部播放</button></div>
+            </div>
+        </div>
+        <div class="listData" @touchstart="startDown" @touchmove="moveDown" @touchend="endDown">
+            <h3>排行榜共300首</h3>
+            <ul>
+              <router-link :to="{path:'/'}" tag="li" v-for="(item,index) in params.songList">
+                <span class="index">{{index+1}}</span>
+                <div class="songList">
+                  <div>
+                    <span>{{item.songname}}-{{item.singername}}</span>
+                  </div>
+                </div>
+              </router-link>
+            </ul>
+        </div>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     export default{
@@ -8,13 +47,30 @@
             this.params=this.$route.query.data;
             console.log(this.params);
         },
+        methods:{
+          startDown(e){
+            this.startY=e.touches[0].pageY;
+          },
+          moveDown(e){
+            e.preventDefault();
+            let moveY= e.touches[0].pageY-this.startY;
+            if(moveY>0 && moveY<80){
+              document.getElementsByClassName('listData')[0].style["transform"]="translate3d(0,"+moveY+"px,0)";
+            }
+
+          },
+          endDown(){
+            document.getElementsByClassName('listData')[0].style["transform"]="translate3d(0,0,0)"
+          }
+        },
         data(){
           return{
-            params:""
+            params:"",
+            startY:'',
           };
         },
         computed:{
-          
+
         }
     }
 </script>
@@ -31,6 +87,181 @@
     overflow: hidden;
     background-color:#fff;
   }
+#listHeader{
+    width:100%;
+    height:auto;
+    position:relative;
+}
+#bg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -2;
+  filter: blur(5px);
 
-  
+}
+#bg img{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+
+}
+#albumMask{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index:-1;
+  background-color: #000;
+  opacity: 0.8;
+
+}
+.topHeader{
+    display:flex;
+    width:100%;
+    height:48px;
+    background:rgba(0,0,0,.2);
+    /*background-color: none;*/
+    color:#fff;
+}
+  .musicLogo{
+    display: inline-block;
+    width:72px;
+    height: 70px;
+    margin-right: 3px;
+    background-image:url('../../static/images/sprite_play.png');
+    background-repeat: no-repeat;
+    background-position: 0 -600px;
+    -webkit-transform: scale(0.5);
+    align-self: center;
+  }
+.tipTitle{
+  flex: 1;
+  display: flex;
+  flex-direction:column;
+  font-size: 14px;
+  align-self: center;
+  margin-left: -8px;
+}
+#open{
+  width: 54px;
+  height: 24px;
+  border: 1px solid #fff;
+  text-align: center;
+  align-self: center;
+  border-radius: 28%;
+  margin: 0 15px;
+}
+  .albumSection{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top:17px;
+    padding: 0 16px;
+    overflow: hidden;
+  }
+  .albumImg{
+    position: relative;
+    width: 125px;
+    height: 125px;
+    margin-right: 10px;
+    overflow: hidden;
+  }
+  .albumImg img{
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #albumContent{
+    flex: 1;
+    height: 100%;
+    color: #fff;
+  }
+  .listData h3{
+    font-size: 16px;
+    font-weight: normal;
+    color: #777;
+    padding:15px;
+    margin: 0 5px;
+
+  }
+  .bottomHeader{
+
+    width: 100%;
+    height: 84px;
+  }
+  #allPlay{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  #getAll{
+    width: 170px;
+    height: 40px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 20px;
+    background: #31c27c;
+    border: none;
+    outline: none;
+    align-self: center;
+  }
+  #getAll:before{
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    margin-right: -3px;
+    border-color: transparent transparent transparent #fff;
+    border-width: 7px 11px;
+    border-style: solid;
+    border-radius: 2px;
+    float: left;
+    margin-top: 3px;
+    margin-left: 40px;
+  }
+  .listData ul{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+  }
+  .listData li:nth-child(1) .index,.listData li:nth-child(2) .index,.listData li:nth-child(3) .index{
+    color: #FF400B;
+  }
+  .listData li{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex: column;
+    list-style: none;
+  }
+  .songList div{
+    width: 100%;
+    line-height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    color: # #2c2c35;
+    overflow: hidden;
+  }
+  .songList{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+  .index{
+    width: 45px;
+    text-align: center;
+    align-self: center;
+  }
+  .listData{
+    -webkit-transition: transform 0.6 ease-in-out;
+  }
 </style>
+

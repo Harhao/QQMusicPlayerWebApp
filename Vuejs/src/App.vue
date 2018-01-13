@@ -2,7 +2,7 @@
 <template>
   <div id="app">
     <Mheader></Mheader>
-    <keep-alive><router-view></router-view></keep-alive>
+    <router-view></router-view>
     <musicDetail></musicDetail>
     <audioPane></audioPane>
     <audio id="play"  :src="songPlayList[0].songSrc" @ended="nextSong" @error="nextSong" preload="auto"></audio>

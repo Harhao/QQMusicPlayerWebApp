@@ -31,7 +31,7 @@ const store =new Vuex.Store({
       singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
       songName:"体面",
       singer:"袁娅维",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400000Md1wq0vnwzE.m4a?fromtag=38&vkey=ECC40B2D3B466C8785BDAD4BF3CA27DC51A04CDFCA0C73ADE9B5DFC99BCE4C43412D4FAD0FF0C8BB6843D663037758642B661D129A8BB76E&guid=895385890"
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400000Md1wq0vnwzE.m4a?guid=895385890&vkey=3BD08405049D36780D42D093F8535D3C922DFBC149F0B4FD3581C9AB3646C89E959B983E075D4F72AEBABD3EEE826E9EF22FCA0D8BD40452&uin=&fromtag=999"
     }],
     prevPlayList:[],
   },

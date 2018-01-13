@@ -36,6 +36,9 @@
             	Mfooter,
 							loading
         },
+    methods:{
+
+  },
 		data(){
 			return {
         		swiperOption: {
@@ -54,7 +57,7 @@
 					"musicItem":[{
 						"img":"https://y.gtimg.cn/music/photo/radio/track_radio_199_13_1.jpg?max_age=2592000",
 						"desc":"热歌",
-            			"href":"http://localhost:8080/player"
+            "href":"http://localhost:8080/player"
 					},{
 						"img":"https://y.gtimg.cn/music/photo/radio/track_radio_199_13_1.jpg?max_age=2592000",
 						"desc":"热歌",
@@ -76,26 +79,26 @@
 					"musicItem":[{
 						"img":"https://y.gtimg.cn/music/photo_new/T006R300x300M000004bFmjW2PXSqF.jpg?max_age=2592000",
 						"desc":"精选内地十大民谣歌手代表作",
-            			"href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=2043041547"
+            "href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=2043041547"
 					},{
 						"img":"https://y.gtimg.cn/music/photo_new/T006R300x300M0000032Ubid2ses0e.jpg?max_age=2592000",
 						"desc":"2016Billboard嘻哈榜精选",
-            			"href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=2040362185"
+            "href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=2040362185"
 					}]
 				},{
 					"title":"动漫",
 					"musicItem":[{
 						"img":"https://y.gtimg.cn/music/photo_new/T006R300x300M000000xFtbN1l8ye8.jpg?max_age=2592000",
 						"desc":"浮光掠影：ACG纯音乐赏析合辑",
-            			"href":"https:////y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=1723063372"
+            "href":"https:////y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=1723063372"
 					},{
 						"img":"https://y.gtimg.cn/music/photo_new/T006R300x300M000000xFtbN1l8ye8.jpg?max_age=2592000",
 						"desc":"trip-hop单曲大推荐",
-            			"href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=3482605622"
+            "href":"https://y.qq.com/w/taoge.html?ADTAG=myqq&from=myqq&channel=10007100&id=3482605622"
 					}]
 				}],
-				downloaded:false
-            }
+				downloaded:false,
+      }
 		},
 		created(){
 			this.$http.get("http://localhost:3000/home").then((response)=>{
