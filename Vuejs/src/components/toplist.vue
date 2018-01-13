@@ -1,14 +1,18 @@
 <template>
-    <div class="app"></div>
+    
 </template>
 <script type="text/ecmascript-6">
     export default{
         components: {},
+        props:[""],
         data(){
-
+          return{};
         },
-        methods: {}
+        computed:{
+          
+        }
     }
 </script>
 <style scoped>
+  
 </style>
