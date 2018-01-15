@@ -19,8 +19,9 @@
     ```
 - 运行效果如下所示:
     - 运行效果:
-        - ![index](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/1.gif?raw=true)
+        - ![index](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/1.gif)
     - detail页面运行效果:
         - ![detail](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/1.PNG) ![rotate](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/2.PNG)
         - ![global](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/3.PNG) ![store](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/4.PNG)
-> 未完待续中，音乐的专辑列表播放页，以及歌手详情页待续开发
+        - ![toplist](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/5.jpg)
+> 未完待续中，歌手详情页待续开发
