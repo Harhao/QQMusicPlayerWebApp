@@ -13,25 +13,19 @@ const store =new Vuex.Store({
       singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R150x150M000001vVSiX0qzGgo.jpg?max_age=2592000",
       songName:"风继续吹",
       singer:"伊正",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400000ImWRb0lodP3.m4a?fromtag=38&vkey=5469A1BAFBF593A94FB797C1A43C0446BF385F26BEDF826789D62A4A5A8E7D0E0489297F782D1B701D731353678D308ED74C4C600CF68293&guid=895385890"
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400000ImWRb0lodP3.m4a?fromtag=38&vkey=DFD3D7D27C916EC10A9C9D63A00B94064159DF06AEFBCA37375D9B585472DEBFFAF0C02E8EA2533A5E7D5E8DC7B6DB92B72C358D705DBD39&guid=1337312690"
     },{
       mid:'125',
       singerAvartar:"https://y.gtimg.cn/music/photo_new/T006R300x300M00000333So02drvak.jpg?max_age=2592000",
       songName:"七里香",
       singer:"周杰伦",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400002ZKnKQ34rbZu.m4a?guid=1337312690&vkey=EA9B0A5F2CC4FE2C7783C3EC67939EAF1779EB438BD5B16049A5E5FE36E2D65B1B819F2BC994F9D64E109887B42002FF9BC692F6A685CA03&uin=&fromtag=999"
-    },{
-      mid:'123',
-      singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
-      songName:"说散就散",
-      singer:"袁娅维",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400003vUjJp3QwFcd.m4a?vkey=E2CA0056E83D3A0CFDD4E8BE4473F04AAF84379942CD59CF26C3A6B951617517B5CBAC55C03BE694082A2894F5957DF7E54AFB7F82BE7572&guid=895385890&uin=0&fromtag=66"
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400004Z8Ihr0JIu5s.m4a?guid=1337312690&vkey=9A3459C34A4593DEAB41065A61CFDE41BE5BED695D059D199783F316F62B7414B57C1C9E8B2F9E181E284D87B9E3C2014E14DB35655A3162&uin=&fromtag=999"
     },{
       mid:'124',
       singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R300x300M000001qYTzY2oyDyZ.jpg?max_age=2592000",
       songName:"体面",
       singer:"袁娅维",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400000Md1wq0vnwzE.m4a?guid=895385890&vkey=3BD08405049D36780D42D093F8535D3C922DFBC149F0B4FD3581C9AB3646C89E959B983E075D4F72AEBABD3EEE826E9EF22FCA0D8BD40452&uin=&fromtag=999"
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400000Md1wq0vnwzE.m4a?fromtag=38&vkey=35A6DEE575B9FAD8EFF4578571A12927AE5AE91EA2CBC89E75D2E5FE63C18BA902FF716AB2A43548D96319B263B2E4087250E40FE6D79B12&guid=1337312690"
     }],
     prevPlayList:[],
   },
