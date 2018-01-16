@@ -9,6 +9,7 @@
     ```
      npm install
     ```
+    - 项目是用Nodejs的Express框架提供的API接口，在仓库里面有个项目是api的可以直接下载，也可以自行模拟虚拟假数据
     - 运行没有打包版本命令,然后在浏览器地址栏中输入http://localhost:8080/：
     ```
     npm run dev
