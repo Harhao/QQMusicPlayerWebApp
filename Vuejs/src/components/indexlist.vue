@@ -1,10 +1,7 @@
 <template>
     <div class="toplist" ref="toplist" @scroll="scrollFixed">
         <div id="listHeader">
-            <div id="bg">
-              <img v-if="data.topinfo['pic']"  :src="data.topinfo['pic']"/>
-              <img v-else  :src="data.topinfo['pic_album']"/>
-            </div>
+            <div id="bg"><img :src="picUrl"/></div>
             <div id="albumMask"></div>
             <div class="topHeader">
                 <div class="musicLogo"></div>
@@ -16,12 +13,12 @@
             </div>
             <div class="albumSection">
               <div class="albumImg">
-                <img :src="data.topinfo['pic_album']"/>
+                <img :src="picUrl"/>
               </div>
               <div id="albumContent">
-                <h3>{{data.topinfo.ListName}}</h3>
+                <h3>{{data.dissname}}</h3>
                 <p>第一周</p>
-                <p>{{data["update_time"]}}</p>
+                <p>2018年1月16日</p>
               </div>
             </div>
             <div class="bottomHeader">
@@ -31,11 +28,11 @@
         <div class="listData" >
             <h3>排行榜共{{data["total_song_num"]}}首</h3>
             <ul>
-              <router-link :to="{path:'/'}" tag="li" v-for="(item,index) in songlist">
+              <router-link :to="{path:'/'}" tag="li" v-for="(item,index) in songlist" :Key="index">
                 <span class="index">{{index+1}}</span>
                 <div class="songList">
                   <div>
-                    <span>{{item.data.songname}}-{{item.data.singer[0].name}}</span>
+                    <span>{{item.name}}-{{item.singer[0].name}}</span>
                   </div>
                 </div>
               </router-link>
@@ -48,9 +45,13 @@
         components: {},
         created(){
             this.id=this.$route.query.id;
-            this.$http.get("http://localhost:3000/toplist?id="+this.id).then((response)=>{
-              this.data=response.data;
-              this.songlist=response.data.songlist;
+            this.picUrl=this.$route.query.picUrl;
+            this.$http.get("http://localhost:3000/indexlist?id="+this.id).then((response)=>{
+              console.log(response.data);
+              this.songlist=response.data.cdlist[0].songlist;
+              this.data=response.data.cdlist[0];
+              this.index=this.index*1+15;
+              this.num=response.data.cdlist[0]["total_song_num"];
             }).catch((err) => {
               console.log(err);
             });
@@ -58,7 +59,19 @@
         },
         methods:{
           scrollFixed(e){
-            // console.log(e.target.scrollTop);
+            const toalHeight=this.$refs.toplist.clientHeight;
+            const height=toalHeight*0.8;
+            if(e.target.scrollTop>height){
+              if(this.index>this.num){
+                this.index=this.num;
+              }
+              this.$http.get("http://localhost:3000/indexlist?id="+this.id+"&curIndex="+this.index).then((response)=>{
+                this.songlist.push(response.data.cdlist[0].songlist);
+                this.index=this.index*1+15;;
+              }).catch((err)=>{
+                console.log(err);
+              });
+            }
           }
         },
         data(){
@@ -66,7 +79,9 @@
             id:"",
             data:'',
             startY:'',
-            songlist:[]
+            picUrl:'',
+            songlist:[],
+            index:'0'
           };
         },
         computed:{
@@ -187,6 +202,8 @@
     padding:15px;
     margin: 0 5px;
 
+
+
   }
   .bottomHeader{
 
@@ -264,4 +281,5 @@
   .listData{
     -webkit-transition: transform 0.6 ease-in-out;
   }
+
 </style>

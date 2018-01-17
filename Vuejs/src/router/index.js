@@ -4,6 +4,7 @@ import Index from "@/components/index"
 import List from "@/components/List"
 import Search from "@/components/Search"
 import Toplist from "@/components/toplist"
+import IndexList from '@/components/indexlist'
 Vue.use(Router)
 export default new Router({
   mode: 'history',
@@ -27,6 +28,9 @@ export default new Router({
     },{
       path:"/toplist",
       component:Toplist
+    },{
+      path:'/indexlist',
+      component:IndexList
     },{
       path:"*",
       redirect:"/recomment"

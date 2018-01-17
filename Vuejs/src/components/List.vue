@@ -2,7 +2,7 @@
 <template>
   <div id="tabContent">
     <ul>
-      <router-link v-for="item in lists" :to="{path:'/toplist',query:{data:item}}" tag="li">
+      <router-link v-for="item in lists" :to="{path:'/toplist',query:{id:item.id}}" tag="li">
             <div class="image">
               <img v-bind:src="item.picUrl"/>
               <span class="erMai">{{item.listenCount}}</span>
@@ -28,14 +28,14 @@ export default {
 
   },
   created(){
-    this.$http.get("http://localhost:3000/toplist").then((response)=>{
+    this.$http.get("http://localhost:3000/list").then((response)=>{
       this.lists=response.data.data.topList;
     }).catch((e)=>{
       console.log(e);
     });
   },
   methods:{
-   
+
   }
 }
 </script>

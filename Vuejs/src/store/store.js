@@ -9,11 +9,11 @@ const store =new Vuex.Store({
   state:{
     toggle:false,
     songPlayList:[{
-      mid:'123',
+      mid:'109121301',
       singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R150x150M000001vVSiX0qzGgo.jpg?max_age=2592000",
       songName:"风继续吹",
       singer:"伊正",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400000ImWRb0lodP3.m4a?fromtag=38&vkey=DFD3D7D27C916EC10A9C9D63A00B94064159DF06AEFBCA37375D9B585472DEBFFAF0C02E8EA2533A5E7D5E8DC7B6DB92B72C358D705DBD39&guid=1337312690"
+      songSrc:"http://dl.stream.qqmusic.qq.com/C400000ImWRb0lodP3.m4a?fromtag=38&vkey=D6E1666D14645C58E0DA5F7B45ACB7A9C37728B95E653D59BEB3D107EAAD876F0FAA3E20F3E28AFEE9190F8611A0B6F9EF53185FB483C2E0&guid=1337312690"
     },{
       mid:'125',
       singerAvartar:"https://y.gtimg.cn/music/photo_new/T006R300x300M00000333So02drvak.jpg?max_age=2592000",
