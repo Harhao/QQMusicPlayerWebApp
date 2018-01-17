@@ -45,11 +45,14 @@
      		};
      	},
       methods:{
-        sub(){
+        sub(e){
+          e.preventDefault();
+          e.stopPropagation();
           return false;
         },
         search(e){
           e.preventDefault();
+          e.stopPropagation();
           const keyword=this.$refs.keyWord.value;
           this.hist=keyword;
           this.$http.get("http://localhost:3000/search?keyword="+keyword).then((response)=>{

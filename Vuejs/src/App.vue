@@ -46,12 +46,12 @@ export default {
   },
   mounted() {
     //do something after mounting vue instance
-    this.$http.get("http://localhost:3000/songList").then((response)=>{
-      var data=response.data.cdlist[0].songlist;
-      this.$store.commit('addSong',data);
-    }).catch((e)=>{
-      console.log(e);
-    });
+    // this.$http.get("http://localhost:3000/songList").then((response)=>{
+    //   var data=response.data.cdlist[0].songlist;
+    //   this.$store.commit('addSong',data);
+    // }).catch((e)=>{
+    //   console.log(e);
+    // });
   }
 }
 </script>
