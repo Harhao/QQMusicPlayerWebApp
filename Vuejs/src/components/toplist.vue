@@ -25,7 +25,7 @@
               </div>
             </div>
             <div class="bottomHeader">
-              <div id="allPlay"><button id="getAll">全部播放</button></div>
+              <div id="allPlay"><button id="getAll"  @click="addAllSong">全部播放</button></div>
             </div>
         </div>
         <div class="listData" >
@@ -35,11 +35,14 @@
                 <span class="index">{{index+1}}</span>
                 <div class="songList">
                   <div>
-                    <span>{{item.data.songname}}-{{item.data.singer[0].name}}</span>
+                    <span :data-index="index"  @click="addSong">{{item.data.songname}}-{{item.data.singer[0].name}}</span>
                   </div>
                 </div>
               </li>
             </ul>
+        </div>
+        <div id="tips" ref="tips" class="hide">
+          <span><i>已经添加到播放列表</i></span>
         </div>
     </div>
 </template>
@@ -59,6 +62,42 @@
         methods:{
           scrollFixed(e){
             // console.log(e.target.scrollTop);
+          },
+          addSong(e) {
+            this.$refs.tips.classList.remove('hide');
+            const clickIndex=e.target.getAttribute("data-index");
+            const list=this.songlist[clickIndex];
+            let data=[];
+            const dataItem={
+              singerAvartar:this.data.topinfo['pic_album'],
+              title:list.data.songname,
+              singer:list.data.singer[0].name,
+              mid:list.data.songid,
+              songSrc:"http://dl.stream.qqmusic.qq.com/C400"+list.data.songmid+".m4a?guid=1337312690&vkey=D6AF9ABAAC13DD1FAFA27074F4DA4AEBBA5527C9179FF36009277546A7698073A1D4E2565D1F15DF55397B1960BF96FC02E024D3D43A1C55&uin=&fromtag=999"
+            };
+            data.push(dataItem);
+            this.$store.commit("addSong",data);
+            setTimeout(()=>{
+              this.$refs.tips.classList.add('hide');
+            },1000);
+          },
+          addAllSong(){
+            this.$refs.tips.classList.remove('hide');
+            let data=[];
+            for (let i=0;i<this.songlist.length;i++){
+              const dataItem={
+                singerAvartar:this.data.topinfo['pic_album'],
+                title:this.songlist[i].data.songname,
+                singer:this.songlist[i].data.singer[0].name,
+                mid:this.songlist[i].data.songid,
+                songSrc:"http://dl.stream.qqmusic.qq.com/C400"+this.songlist[i].data.songmid+".m4a?guid=1337312690&vkey=D6AF9ABAAC13DD1FAFA27074F4DA4AEBBA5527C9179FF36009277546A7698073A1D4E2565D1F15DF55397B1960BF96FC02E024D3D43A1C55&uin=&fromtag=999"
+              };
+              data.push(dataItem);
+            }
+            this.$store.commit("addSong",data);
+            setTimeout(()=>{
+              this.$refs.tips.classList.add('hide');
+            },1000);
           }
         },
         data(){
@@ -263,5 +302,42 @@
   }
   .listData{
     -webkit-transition: transform 0.6 ease-in-out;
+  }
+  #tips{
+    position:fixed;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    top:0;
+    botom:0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    display: flex;
+    align-items: center;
+  }
+  .hide{
+    display: none !important;
+  }
+  #tips span{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 20%;
+    background: #000;
+    opacity: 0.9;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    margin-top:-25%;
+    margin-left:-25%;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: center;
+  }
+  #tips span i{
+    font-style: normal;
+    margin: 0 auto;
   }
 </style>

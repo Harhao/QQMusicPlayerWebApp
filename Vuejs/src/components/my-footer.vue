@@ -14,6 +14,8 @@
 		}
 	}
 <script>
-<style>
-	
+<style scoped>
+	#footer{
+		color:#333 !important;
+	}
 </style>
