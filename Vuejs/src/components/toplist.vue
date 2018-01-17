@@ -31,14 +31,14 @@
         <div class="listData" >
             <h3>排行榜共{{data["total_song_num"]}}首</h3>
             <ul>
-              <router-link :to="{path:'/'}" tag="li" v-for="(item,index) in songlist">
+              <li v-for="(item,index) in songlist">
                 <span class="index">{{index+1}}</span>
                 <div class="songList">
                   <div>
                     <span>{{item.data.songname}}-{{item.data.singer[0].name}}</span>
                   </div>
                 </div>
-              </router-link>
+              </li>
             </ul>
         </div>
     </div>
