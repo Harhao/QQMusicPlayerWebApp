@@ -2,15 +2,23 @@
 <template>
   <div id="search">
   	<div id="searchWord">
-      <form action="" method="GET" id="searchSong">
-        <input id="keyWord" type="text" name="song" @blur="blurHandle" @focus="focusHandle" placeholder="搜索歌曲、歌单、专辑"/>
-        <input type="button" value="取消" id="submit" @click="sendData"/>
+      <form action="##" method="get" id="searchSong" @submit="sub" @keyup.enter="search">
+        <input id="keyWord" ref="keyWord" type="text" name="keyword" @blur="blurHandle" @focus="focusHandle" placeholder="搜索歌曲、歌单、专辑"/>
+        <input type="button" value="取消" ref="submit" id="submit" @click="sendData"/>
       </form>
-      <div id="hotKey">
+      <div ref="hotKey" id="hotKey">
         <h3>热门搜索</h3>
-        <router-link v-for="item in data.hotKeys" :to="{path:item.href}" tag="a">{{item.title}}</router-link>
+        <router-link v-for="(item,index) in hotkey" v-if="index<8" tag="a" :to="{path:''}">{{item.k}}</router-link>
       </div>
-      <history></history>
+      <div class="searchResult">
+        <ul>
+          <li v-for="(item,index) in searchResult" v-if="index<8">
+            <i class="icon"></i>
+            <span>{{item.songname}}-{{item.singer[0].name}}</span>
+          </li>
+        </ul>
+      </div>
+      <history id="history" :word="hist"></history>
     </div>
   </div>
 </template>
@@ -21,50 +29,55 @@
       components:{
         history
       },
+      created() {
+        //do something after creating vue instance
+        this.$http.get("http://localhost:3000/hotkey").then((response)=>{
+          this.hotkey=response.data.data.hotkey;
+        }).catch((err)=>{
+          console.log(err);
+        });
+      },
      	data(){
      		return{
-          data:{
-            hotKeys:[{
-              title:"梦想的声音第二季",
-              href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
-            },{
-              title:"DJ舞曲(华语)系列5 DJ ",
-              href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
-            },{
-              title:"紫",
-              href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
-            },{
-              title:"野子",
-              href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
-            },{
-              title:"男人不该让女人流泪",
-              href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
-            },{
-              title:"DJ",
-              href:"https://y.qq.com/m/act/voiceofdreams2/v3/index.html?ADTAG=myqq"
-            }]
-          }
+            hotkey:[],
+            searchResult:[],
+            hist:""
      		};
      	},
       methods:{
+        sub(){
+          return false;
+        },
+        search(e){
+          e.preventDefault();
+          const keyword=this.$refs.keyWord.value;
+          this.hist=keyword;
+          this.$http.get("http://localhost:3000/search?keyword="+keyword).then((response)=>{
+            this.searchResult=response.data.data.song.list;
+          }).catch((err)=>{
+            console.log(err);
+          });
+        },
         sendData(event){
           event.target.style.display="none";
         },
         focusHandle(event){
-          document.getElementById('submit').style.display="inline-block";
-          document.getElementById('hotKey').style.display="none";
-          document.getElementsByClassName('history')[0].style.display="block";
+          this.$refs.submit.style.display="inline-block";
+          this.$refs.hotKey.style.display="none";
+          document.getElementById("history").style.display="block";
+
         },
         blurHandle(){
-          document.getElementById('hotKey').style.display="block";
-          document.getElementsByClassName('history')[0].style.display="none";
-          document.getElementById('submit').style.display="none";
+          this.$refs.hotKey.style.display="block";
+          document.getElementById("history").style.display="none";
+          this.$refs.submit.style.display="none";
+          this.searchResult=[];
         }
       }
     }
 </script>
 
-<style>
+<style scoped>
 body{
   margin:0;
   overflow: hidden;
@@ -74,6 +87,7 @@ body{
   height: 50px;
   padding: 2%;
   background-color: #f4f4f4;
+  position: relative;
 }
 form#searchSong{
   display: flex;
@@ -135,5 +149,37 @@ form#searchSong{
 #hotKey a:nth-child(2){
   color: #fc4524;
   border-color: #fc4524;
+}
+ul{
+  position:absolute;
+  z-index:99;
+  width: 100%;
+  padding:0;
+  margin: 0;
+}
+li{
+  position: relative;
+  list-style: none;
+  height: 55px;
+  vertical-align: top;
+  background:#fff;
+}
+.icon{
+  position: absolute;
+  display: inline-block;
+  width:45px;
+  height: 45px;
+  background:url("../../static/images/search_sprite.png") no-repeat;
+  background-position: 0 0;
+  transform: scale(0.5);
+  top: 5px;
+}
+li span{
+  display: inline-block;
+  width:80%;
+  height: 55px;
+  line-height: 55px;
+  color: #555;
+  margin-left: 50px;
 }
 </style>

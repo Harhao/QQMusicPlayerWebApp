@@ -4,7 +4,7 @@
         <li v-for="item in historyArr" @click="addToInput">
           <router-link :to="{path:''}">
             <span class="found"></span>
-            <span class="historyName">{{item.songName}}</span>
+            <span class="historyName">{{item}}</span>
             <span class="del">+</span>
           </router-link>
         </li>
@@ -16,18 +16,15 @@
 </template>
 <script type="text/ecmascript-6">
   export default {
+    props:["word"],
     data(){
       return {
-        historyArr:[{
-          songName:"一生所爱 卢冠廷"
-        },{
-            songName:"默"
-        },{
-          songName:"富士山下"
-        },{
-          songName:"大海"
-        }]
+        historyArr:[]
       };
+    },
+    created() {
+      //do something after creating vue instance
+      this.historyArr.push(this.word);
     },
     methods:{
       clearHistory(){
@@ -45,8 +42,10 @@
     }
   }
 </script>
-<style scope>
+<style scoped>
   .history{
+    position:absolute;
+    z-index:98;
     width: 100%;
     height: auto;
     display: none;
