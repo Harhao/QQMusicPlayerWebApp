@@ -9,6 +9,7 @@
     ```
      npm install
     ```
+    - 项目是用Nodejs的Express框架提供的API接口，在仓库里面有个项目是api的可以直接下载，也可以自行模拟虚拟假数据
     - 运行没有打包版本命令,然后在浏览器地址栏中输入http://localhost:8080/：
     ```
     npm run dev
@@ -23,5 +24,6 @@
     - detail页面运行效果:
         - ![detail](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/1.PNG) ![rotate](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/2.PNG)
         - ![global](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/3.PNG) ![store](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/4.PNG)
-        - ![toplist](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/5.jpg)
+        - ![toplist](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/5.jpg) ![list](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/6.jpg)
+        - ![history](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/7.jpg)
 > 未完待续中，歌手详情页待续开发
