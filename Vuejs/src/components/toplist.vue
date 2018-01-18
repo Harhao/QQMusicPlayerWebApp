@@ -73,7 +73,7 @@
               title:list.data.songname,
               singer:list.data.singer[0].name,
               mid:list.data.songid,
-              songSrc:"http://dl.stream.qqmusic.qq.com/C400"+list.data.songmid+".m4a?guid=1337312690&vkey=D6AF9ABAAC13DD1FAFA27074F4DA4AEBBA5527C9179FF36009277546A7698073A1D4E2565D1F15DF55397B1960BF96FC02E024D3D43A1C55&uin=&fromtag=999"
+              songSrc:"http://dl.stream.qqmusic.qq.com/C400"+list.data.songmid+".m4a?"+this.$store.state.Mkey
             };
             data.push(dataItem);
             this.$store.commit("addSong",data);
@@ -90,7 +90,7 @@
                 title:this.songlist[i].data.songname,
                 singer:this.songlist[i].data.singer[0].name,
                 mid:this.songlist[i].data.songid,
-                songSrc:"http://dl.stream.qqmusic.qq.com/C400"+this.songlist[i].data.songmid+".m4a?guid=1337312690&vkey=D6AF9ABAAC13DD1FAFA27074F4DA4AEBBA5527C9179FF36009277546A7698073A1D4E2565D1F15DF55397B1960BF96FC02E024D3D43A1C55&uin=&fromtag=999"
+                songSrc:"http://dl.stream.qqmusic.qq.com/C400"+this.songlist[i].data.songmid+".m4a?"+this.$store.state.Mkey
               };
               data.push(dataItem);
             }

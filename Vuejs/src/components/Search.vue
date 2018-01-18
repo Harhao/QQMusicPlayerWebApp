@@ -56,7 +56,7 @@
             title:item.songname,
             singer:item.singer[0].name,
             singerAvartar:"http://imgcache.qq.com/music/photo_new/T002R300x300M000"+item.albummid+".jpg",
-            songSrc:"http://dl.stream.qqmusic.qq.com/C400"+item.songmid+".m4a?guid=1337312690&vkey=D6AF9ABAAC13DD1FAFA27074F4DA4AEBBA5527C9179FF36009277546A7698073A1D4E2565D1F15DF55397B1960BF96FC02E024D3D43A1C55&uin=&fromtag=999"
+            songSrc:"http://dl.stream.qqmusic.qq.com/C400"+item.songmid+".m4a?"+this.$store.state.Mkey
           };
           data.push(song);
           this.$store.commit("addSong",data);
