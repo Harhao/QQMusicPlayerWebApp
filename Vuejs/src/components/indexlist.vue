@@ -1,7 +1,7 @@
 <template>
     <div class="toplist" ref="toplist" @scroll="scrollFixed">
         <div id="listHeader">
-            <div id="bg"><img :src="picUrl"/></div>
+            <div id="bg"><img v-lazy="picUrl"/></div>
             <div id="albumMask"></div>
             <div class="topHeader">
                 <div class="musicLogo"></div>
@@ -13,7 +13,7 @@
             </div>
             <div class="albumSection">
               <div class="albumImg">
-                <img :src="picUrl"/>
+                <img v-lazy="picUrl"/>
               </div>
               <div id="albumContent">
                 <h3>{{data.dissname}}</h3>
@@ -121,7 +121,7 @@
             startY:'',
             picUrl:'',
             songlist:[],
-            index:'0'
+            index:'0',
           };
         },
         computed:{

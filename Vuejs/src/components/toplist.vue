@@ -2,8 +2,8 @@
     <div class="toplist" ref="toplist" @scroll="scrollFixed">
         <div id="listHeader">
             <div id="bg">
-              <img v-if="data.topinfo['pic']"  :src="data.topinfo['pic']"/>
-              <img v-else  :src="data.topinfo['pic_album']"/>
+              <img v-if="data.topinfo['pic']"  v-lazy="data.topinfo['pic']"/>
+              <img v-else  v-lazy="data.topinfo['pic_album']"/>
             </div>
             <div id="albumMask"></div>
             <div class="topHeader">
@@ -16,7 +16,7 @@
             </div>
             <div class="albumSection">
               <div class="albumImg">
-                <img :src="data.topinfo['pic_album']"/>
+                <img v-lazy="data.topinfo['pic_album']"/>
               </div>
               <div id="albumContent">
                 <h3>{{data.topinfo.ListName}}</h3>
@@ -49,6 +49,14 @@
 <script type="text/ecmascript-6">
     export default{
         components: {},
+        data(){
+          return{
+            id:"",
+            data:'',
+            startY:'',
+            songlist:[],
+          };
+        },
         created(){
             this.id=this.$route.query.id;
             this.$http.get("http://localhost:3000/toplist?id="+this.id).then((response)=>{
@@ -99,14 +107,6 @@
               this.$refs.tips.classList.add('hide');
             },1000);
           }
-        },
-        data(){
-          return{
-            id:"",
-            data:'',
-            startY:'',
-            songlist:[]
-          };
         },
         computed:{
 

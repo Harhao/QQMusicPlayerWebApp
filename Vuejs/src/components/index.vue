@@ -12,7 +12,7 @@
 				<div class="itemContainer">
             <a href="">
               <div class="displayImg">
-                <img v-bind:src="data.radioList[0].picUrl"/>
+                <img v-lazy="data.radioList[0].picUrl"/>
                 <span class="icon"></span>
               </div>
               <div class="content">{{data.radioList[0].Ftitle}}</div>
@@ -26,7 +26,7 @@
 				<div class="itemContainer" v-for="(item,index) in data.songList">
             <router-link :to="{ path:'/indexlist',query:{ id: item.id,picUrl:item.picUrl}}">
               <div class="displayImg">
-                <img v-bind:src="item.picUrl"/>
+                <img v-lazy="item.picUrl"/>
                 <span class="icon"></span>
               </div>
               <div class="content">{{item.songListDesc}}</div>
@@ -74,7 +74,7 @@
 			this.$http.get("http://localhost:3000/home").then((response)=>{
 				this.imgArray=response.data.data.slider;
 				this.data=response.data.data;
-				this.downloaded=true;
+				setTimeout(()=>{this.downloaded=true;},500);
 			}).catch((e)=>{
 				console.log(e);
 			});

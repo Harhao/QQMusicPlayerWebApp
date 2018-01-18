@@ -10,7 +10,7 @@
       </div>
       <div id="musicTop">
         <div id="musicAvatar">
-          <img :src="songPlayList[0].singerAvartar"/>
+          <img v-lazy="songPlayList[0].singerAvartar"/>
         </div>
         <div id="info">
           <div id="title">{{songPlayList[0].songName}}</div>
@@ -20,7 +20,7 @@
       </div>
       <div id="lyrics">
         <div id="avatar" @click="toggleAvatar">
-          <img class="img" :class="{Rotation:this.toggle}" :src="songPlayList[0].singerAvartar"/>
+          <img class="img" :class="{Rotation:this.toggle}" v-lazy="songPlayList[0].singerAvartar"/>
           <span class="largeCir">
             <span class="smallCir"></span>
           </span>
@@ -51,7 +51,7 @@
       <globalList></globalList>
       <loading :finish="downloaded"></loading>
       <div id="mask"></div>
-      <div id="glass"><img :src="songPlayList[0].singerAvartar"/></div>
+      <div id="glass"><img v-lazy="songPlayList[0].singerAvartar"/></div>
     </div>
 </template>
 <script type="text/ecmascript-6">
