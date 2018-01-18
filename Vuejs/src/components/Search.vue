@@ -12,9 +12,9 @@
       </div>
       <div class="searchResult">
         <ul>
-          <li v-for="(item,index) in searchResult" v-if="index<8">
+          <li v-for="(item,index) in searchResult" v-if="index<8" @click="playSong" >
             <i class="icon"></i>
-            <span>{{item.songname}}-{{item.singer[0].name}}</span>
+            <span :data-index="index">{{item.songname}}-{{item.singer[0].name}}</span>
           </li>
         </ul>
       </div>
@@ -45,6 +45,20 @@
      		};
      	},
       methods:{
+        playSong(e){
+          const selectIndex=e.target.getAttribute("data-index");
+          const item=this.searchResult[selectIndex];
+          let data=new Array();
+          const song={
+            mid:item.songid,
+            title:item.songname,
+            singer:item.singer[0].name,
+            singerAvartar:"http://imgcache.qq.com/music/photo_new/T002R300x300M000"+item.albummid+".jpg",
+            songSrc:"http://dl.stream.qqmusic.qq.com/C400"+item.songmid+".m4a?guid=1337312690&vkey=D6AF9ABAAC13DD1FAFA27074F4DA4AEBBA5527C9179FF36009277546A7698073A1D4E2565D1F15DF55397B1960BF96FC02E024D3D43A1C55&uin=&fromtag=999"
+          };
+          data.push(song);
+          this.$store.commit("addSong",data);
+        },
         sub(e){
           e.preventDefault();
           e.stopPropagation();
@@ -57,12 +71,15 @@
           this.hist=keyword;
           this.$http.get("http://localhost:3000/search?keyword="+keyword).then((response)=>{
             this.searchResult=response.data.data.song.list;
+            console.log(this.searchResult);
           }).catch((err)=>{
             console.log(err);
           });
         },
         sendData(event){
           event.target.style.display="none";
+          this.$refs.hotKey.style.display="block";
+          this.searchResult=[];
         },
         focusHandle(event){
           this.$refs.submit.style.display="inline-block";
@@ -71,10 +88,9 @@
 
         },
         blurHandle(){
-          this.$refs.hotKey.style.display="block";
-          document.getElementById("history").style.display="none";
-          this.$refs.submit.style.display="none";
-          this.searchResult=[];
+          // document.getElementById("history").style.display="none";
+          // this.$refs.submit.style.display="none";
+
         }
       }
     }
@@ -176,6 +192,7 @@ li{
   background-position: 0 0;
   transform: scale(0.5);
   top: 5px;
+  left:2px;
 }
 li span{
   display: inline-block;

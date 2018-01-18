@@ -106,9 +106,9 @@
 
   .Rotation{
     -webkit-transform: rotate(360deg);
-    animation: rotation 3s linear infinite;
-    -moz-animation: rotation 3s linear infinite;
-    -webkit-animation: rotation 3s linear infinite;
-    -o-animation: rotation 3s linear infinite;
+    animation: rotation 5s linear infinite;
+    -moz-animation: rotation 5s linear infinite;
+    -webkit-animation: rotation 5s linear infinite;
+    -o-animation: rotation 5s linear infinite;
   }
 </style>

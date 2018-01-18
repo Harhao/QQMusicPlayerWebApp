@@ -310,7 +310,7 @@
       /*-webkit-transform: scale(1, 1);
       -webkit-transform-origin: top right;*/
       -webkit-transform:rotate(0deg);
-      
+
     }
   }
   #back{
