@@ -26,5 +26,5 @@
         - ![global](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/3.PNG) ![store](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/4.PNG)
         - ![toplist](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/5.jpg) ![list](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/6.jpg)
         - ![history](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/7.jpg) ![search](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/5.PNG)
-> 开发过程中，可以了解很多Vuejs学习文档之中不太了解的知识点，例如，ref避免了我们直接通过DOM进行操作;还有vuejs的transition过度组件的使用实际意义，在web开发过程之中，想display：none这样突发性的转换会破坏CSS3的动画效果。所以采用官方的transition动画可以很好解决问题。vuex全局状态管理器可以为我们提供一个比较方便访问的类似database。其实比较纠结的是vuejs开发的路由加载问题，一直在想，vuejs开发单页应用，在一个页面里面动态加载其他的组件页面，会不会对页面造成很大的负载。没有对项目使用fastclick模块，可以避免移动端的点击延迟300ms效果；其次就是使用vuejs的懒加载模块，提高用户体验，不会出现加载过程之中的空白情况。
+> 开发过程中，可以了解很多Vuejs学习文档之中不太了解的知识点，例如，ref避免了我们直接通过DOM进行操作;还有vuejs的transition过度组件的使用实际意义，在web开发过程之中，想display：none这样突发性的转换会破坏CSS3的动画效果。所以采用官方的transition动画可以很好解决问题。vuex全局状态管理器可以为我们提供一个比较方便访问的类似database。其实比较纠结的是vuejs开发的路由加载问题，一直在想，vuejs开发单页应用，在一个页面里面动态加载其他的组件页面，会不会对页面造成很大的负载。对项目使用fastclick模块，可以避免移动端的点击延迟300ms效果；其次就是使用vuejs的懒加载模块，懒加载图片，提高用户体验，不会出现加载过程之中的空白情况。
 
