@@ -3,7 +3,7 @@
   <div id="search">
   	<div id="searchWord">
       <form action="##" method="get" id="searchSong" @submit="sub" @keyup.enter="search">
-        <input id="keyWord" ref="keyWord" type="text" name="keyword" @blur="blurHandle" @focus="focusHandle" placeholder="搜索歌曲、歌单、专辑"/>
+        <input id="keyWord" ref="keyWord" type="text" name="keyword"  @focus="focusHandle" placeholder="搜索歌曲、歌单、专辑"/>
         <input type="button" value="取消" ref="submit" id="submit" @click="sendData"/>
       </form>
       <div ref="hotKey" id="hotKey">
@@ -18,7 +18,10 @@
           </li>
         </ul>
       </div>
-      <history id="history" :word="hist"></history>
+      <history id="history" ></history>
+    </div>
+    <div id="tips" ref="tips" class="hide">
+      <span><i>已经添加到播放列表</i></span>
     </div>
   </div>
 </template>
@@ -41,7 +44,6 @@
      		return{
             hotkey:[],
             searchResult:[],
-            hist:""
      		};
      	},
       methods:{
@@ -58,6 +60,10 @@
           };
           data.push(song);
           this.$store.commit("addSong",data);
+          this.$refs.tips.classList.remove("hide");
+          setTimeout(()=>{
+            this.$refs.tips.classList.add("hide");
+          },1000);
         },
         sub(e){
           e.preventDefault();
@@ -68,10 +74,9 @@
           e.preventDefault();
           e.stopPropagation();
           const keyword=this.$refs.keyWord.value;
-          this.hist=keyword;
+          this.$store.commit("addSearchWord",keyword);
           this.$http.get("http://localhost:3000/search?keyword="+keyword).then((response)=>{
             this.searchResult=response.data.data.song.list;
-            console.log(this.searchResult);
           }).catch((err)=>{
             console.log(err);
           });
@@ -79,6 +84,7 @@
         sendData(event){
           event.target.style.display="none";
           this.$refs.hotKey.style.display="block";
+          document.getElementById("history").style.display="none";
           this.searchResult=[];
         },
         focusHandle(event){
@@ -88,7 +94,7 @@
 
         },
         blurHandle(){
-          // document.getElementById("history").style.display="none";
+
           // this.$refs.submit.style.display="none";
 
         }
@@ -201,5 +207,42 @@ li span{
   line-height: 55px;
   color: #555;
   margin-left: 50px;
+}
+#tips{
+  position:fixed;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  top:0;
+  botom:0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  display: flex;
+  align-items: center;
+}
+.hide{
+  display: none !important;
+}
+#tips span{
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 20%;
+  background: #000;
+  opacity: 0.9;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top:50%;
+  margin-top:-25%;
+  margin-left:-25%;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: center;
+}
+#tips span i{
+  font-style: normal;
+  margin: 0 auto;
 }
 </style>

@@ -9,12 +9,6 @@ const store =new Vuex.Store({
   state:{
     toggle:false,
     songPlayList:[{
-      mid:'109121301',
-      singerAvartar:"https://y.gtimg.cn/music/photo_new/T002R150x150M000001vVSiX0qzGgo.jpg?max_age=2592000",
-      songName:"风继续吹",
-      singer:"伊正",
-      songSrc:"http://dl.stream.qqmusic.qq.com/C400000ImWRb0lodP3.m4a?fromtag=38&vkey=D6E1666D14645C58E0DA5F7B45ACB7A9C37728B95E653D59BEB3D107EAAD876F0FAA3E20F3E28AFEE9190F8611A0B6F9EF53185FB483C2E0&guid=1337312690"
-    },{
       mid:'4962990',
       singerAvartar:"https://y.gtimg.cn/music/photo_new/T006R300x300M00000333So02drvak.jpg?max_age=2592000",
       songName:"七里香",
@@ -22,8 +16,17 @@ const store =new Vuex.Store({
       songSrc:"http://dl.stream.qqmusic.qq.com/C400002ZKnKQ34rbZu.m4a?guid=1337312690&vkey=2DCD375C091308B078852F758F4F365F7B8704A641C9EDA28F72B250A5C39D0C78B38169F3D07A5AF2AED7FDC3F1B0A104A4FF24B51B12DF&uin=&fromtag=999"
     }],
     prevPlayList:[],
+    searchHistory:[]
   },
   mutations:{
+    addSearchWord(state,word){
+      state.searchHistory.push(word);
+    },
+    clearHistory(state){
+      for(var i=0;i<state.searchHistory.length;i++){
+        state.searchHistory.pop();
+      }
+    },
     changeTog(state,toggle){
       state.toggle=toggle;
     },

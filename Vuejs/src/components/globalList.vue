@@ -1,7 +1,7 @@
 <template>
     <div id="globalList">
       <ul>
-        <li  v-for="(item,index) in songLists" @click="addToPlay" v-bind:Key="index" >{{item.songName}}-{{item.singer}}</li>
+        <li  v-for="(item,index) in songLists" @click="addToPlay" v-bind:Key="index" >{{item.songName}}-{{item.singer}}<i></i></li>
       </ul>
     </div>
 </template>
@@ -53,6 +53,7 @@
     margin: 0;
   }
  #globalList li{
+   position: relative;
     list-style: none;
     color: #fff;
     font-size: 16px;
@@ -65,5 +66,17 @@
   }
   #globalList li:first-child{
     color: #31c37c;
+  }
+  #globalList li i{
+    position: absolute;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("../../static/images/search_sprite.png") no-repeat;
+    background-position: center center;
+    background-size: contain;
+    transform:scale(0.5);
+    right: 0;
+    top:0;
   }
 </style>

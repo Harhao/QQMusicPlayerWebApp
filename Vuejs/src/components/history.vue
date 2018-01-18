@@ -10,26 +10,25 @@
         </li>
       </ul>
       <div id="clearHistory" @click="clearHistory">
-        <p>清除所有记录</p>
+        <p>清除记录</p>
       </div>
     </div>
 </template>
 <script type="text/ecmascript-6">
   export default {
-    props:["word"],
     data(){
       return {
-        historyArr:[]
+        historyArr:this.$store.state.searchHistory
       };
     },
     created() {
       //do something after creating vue instance
-      this.historyArr.push(this.word);
+      // this.historyArr.push();
     },
     methods:{
       clearHistory(){
-        this.historyArr=[];
-        this.hide();
+        this.$store.commit("clearHistory");
+        // setTimeout(()=>{this.hide();},200);
       },
       hide(){
         document.getElementsByClassName('history')[0].style.display="none";
@@ -67,7 +66,6 @@
     text-decoration: none;
   }
   .history .found{
-    flex: 2;
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -76,10 +74,13 @@
     background-size: 20px 20px;
   }
   .historyName{
-    pading-left:3%;
-    flex: 4;
+    text-align: center;
+    padding-left:3%;
+    flex: 1;
   }
   .del{
+    width:20px;
+    margin-right: 15px;
     text-align: right;
     font-size: 1.2em;
     -webkit-transform: rotate(45deg);
