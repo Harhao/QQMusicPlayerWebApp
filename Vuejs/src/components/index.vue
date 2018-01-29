@@ -18,6 +18,15 @@
               <div class="content">{{data.radioList[0].Ftitle}}</div>
             </a>
 				</div>
+				<div class="itemContainer">
+            <a href="">
+              <div class="displayImg">
+                <img v-lazy="data.radioList[1].picUrl"/>
+                <span class="icon"></span>
+              </div>
+              <div class="content">{{data.radioList[1].Ftitle}}</div>
+            </a>
+				</div>
 			</div>
 		</div>
 		<div class="lists">
@@ -68,12 +77,14 @@
 				imgArray:"",
 				musicMenu:[],
 				downloaded:false,
+				data:""
       }
 		},
 		created(){
 			this.$http.get("http://localhost:3000/home").then((response)=>{
 				this.imgArray=response.data.data.slider;
 				this.data=response.data.data;
+				console.log(this.data);
 				setTimeout(()=>{this.downloaded=true;},500);
 			}).catch((e)=>{
 				console.log(e);

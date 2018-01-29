@@ -2,8 +2,9 @@
     <div class="toplist" ref="toplist" @scroll="scrollFixed">
         <div id="listHeader">
             <div id="bg">
-              <img v-if="data.topinfo['pic']"  v-lazy="data.topinfo['pic']"/>
-              <img v-else  v-lazy="data.topinfo['pic_album']"/>
+              <img v-if="data.topinfo['pic_album']"  v-lazy="data.topinfo['pic_album']"/>
+              <!-- <img v-if="data.topinfo['pic']"  v-lazy="data.topinfo['pic']"/> -->
+              <img v-else  v-lazy="data.topinfo['pic']"/>            
             </div>
             <div id="albumMask"></div>
             <div class="topHeader">

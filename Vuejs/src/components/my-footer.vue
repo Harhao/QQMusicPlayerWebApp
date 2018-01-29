@@ -1,6 +1,6 @@
 <template>
 	<div id="footer">
-		<div id="redirect"><router-link :to="{path:'/recomment'}">去客户端发现更多好音乐 > </router-link></div>
+		<div id="redirect"><router-link :to="{path:'/recomment'}" style="color:#333;">去客户端发现更多好音乐 > </router-link></div>
 		<div id="PCWeb"><router-link :to="{path:'/recomment'}">查看电脑版网页</router-link></div>
 		<div id="logo"><router-link :to="{path:'/recomment'}"></router-link></div>
 		<div id="copyright"><router-link :to="{path:'/recomment'}">Copyright © 1998 -  Tencent. All Rights Reserved.</router-link></div>
