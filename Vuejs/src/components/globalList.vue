@@ -53,12 +53,13 @@
     margin: 0;
   }
  #globalList li{
-   position: relative;
+    position: relative;
     list-style: none;
     color: #fff;
     font-size: 16px;
     height: 40px;
     line-height: 40px;
+    box-sizing:border-box;
     padding:5px 15px 5px 25px;
     white-space:nowrap;
     text-overflow:ellipsis;
