@@ -98,6 +98,7 @@
   }
 	.wrapper{
 		margin-top:2px;
+		background-color: #ddd;
 	}
 	.player{
 		width:100%;

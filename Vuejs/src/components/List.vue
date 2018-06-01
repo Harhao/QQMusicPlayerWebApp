@@ -54,6 +54,7 @@ body{
     height: auto;
     flex-direction: column;
     background: #ddd;
+    margin-bottom: 60px;
   }
   #tabContent ul {
     width: 100%;
