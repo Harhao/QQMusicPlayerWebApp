@@ -2,14 +2,14 @@
 <template>
   <div id="tabContent">
     <ul>
-      <router-link v-for="item in lists" :to="{path:'/toplist',query:{id:item.id}}" tag="li">
+      <router-link v-for="item in lists" :to="{path:'/toplist',query:{id:item.id}}" tag="li" :key="item.picUrl">
             <div class="image">
               <img v-bind:src="item.picUrl"/>
               <span class="erMai">{{item.listenCount}}</span>
             </div>
             <div class="content1">
               <h3>{{item.topTitle}}</h3>
-              <div v-for="(songItem,index) in item.songList"><span class="index">{{index+1}}</span> {{songItem.songname}}-{{songItem.singername}}</div>
+              <div v-for="(songItem,index) in item.songList" :key="index"><span class="index">{{index+1}}</span> {{songItem.songname}}-{{songItem.singername}}</div>
             </div>
             <div class="icon1">
               <span></span>

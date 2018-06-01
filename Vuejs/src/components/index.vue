@@ -1,7 +1,7 @@
 <template>
 	<div class="wrapper">
 		<swiper :options="swiperOption" ref="mySwiperA">
-			<swiper-slide v-for="item in imgArray">
+			<swiper-slide v-for="item in imgArray" :key="item.picUrl">
 				<img class="player" v-bind:src="item.picUrl"/>
 			</swiper-slide>
 			<div class="swiper-pagination"  slot="pagination"></div>
@@ -32,7 +32,7 @@
 		<div class="lists">
 			<div class="title">热门歌单</div>
 			<div class="listItem">
-				<div class="itemContainer" v-for="(item,index) in data.songList">
+				<div class="itemContainer" v-for="(item,index) in data.songList" :key="index">
             <router-link :to="{ path:'/indexlist',query:{ id: item.id,picUrl:item.picUrl}}">
               <div class="displayImg">
                 <img v-lazy="item.picUrl"/>

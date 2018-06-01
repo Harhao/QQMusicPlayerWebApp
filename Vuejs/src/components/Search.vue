@@ -8,11 +8,11 @@
       </form>
       <div ref="hotKey" id="hotKey">
         <h3>热门搜索</h3>
-        <router-link v-for="(item,index) in hotkey" v-if="index<8" tag="a" :to="{path:''}">{{item.k}}</router-link>
+        <router-link v-for="(item,index) in hotkey" v-if="index<8" tag="a" :to="{path:''}" :key="index">{{item.k}}</router-link>
       </div>
       <div class="searchResult">
         <ul>
-          <li v-for="(item,index) in searchResult" v-if="index<8" @click="playSong" >
+          <li v-for="(item,index) in searchResult" v-if="index<8" @click="playSong" :key="index">
             <i class="icon"></i>
             <span :data-index="index">{{item.songname}}-{{item.singer[0].name}}</span>
           </li>
