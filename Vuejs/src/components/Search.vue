@@ -119,6 +119,7 @@ form#searchSong{
   width: 100%;
   height: 50px;
   background-color: #fff;
+  border-radius: 5px;
 }
 #keyWord{
   display: inline-block;
@@ -128,7 +129,7 @@ form#searchSong{
   color: #555;
   outline:none;
   font-size: 0.8em;
-  border-radius: 20px;
+  border-radius: 30px;
   text-indent: 10%;
   background: url('../../static/images/search.png') no-repeat;
   background-size: 18px 18px;
