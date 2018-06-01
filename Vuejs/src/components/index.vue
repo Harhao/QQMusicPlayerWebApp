@@ -64,15 +64,15 @@
   },
 		data(){
 			return {
-        		swiperOption: {
+      	swiperOption: {
 				// 所有配置均为可选（同Swiper配置）
 					//direction: 'vertical',
     				initialSlide :0,
-		            pagination: '.swiper-pagination',
-		            loop: true,
-		            speed: 400,
-		            autoplay: true,
-		            paginationClickable: true,
+		        pagination: '.swiper-pagination',
+		        loop: true,
+		        speed: 400,
+		        autoplay: true,
+		        paginationClickable: true,
 				},
 				imgArray:"",
 				musicMenu:[],
@@ -84,7 +84,6 @@
 			this.$http.get("http://localhost:3000/home").then((response)=>{
 				this.imgArray=response.data.data.slider;
 				this.data=response.data.data;
-				console.log(this.data);
 				setTimeout(()=>{this.downloaded=true;},500);
 			}).catch((e)=>{
 				console.log(e);
