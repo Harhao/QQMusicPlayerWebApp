@@ -33,3 +33,5 @@
 > 之后使用vue-transition-group改进页面加载动画。
 改进样式bug中
 
+## License
+[MIT](http://opensource.org/licenses/MIT)
