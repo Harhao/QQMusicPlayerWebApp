@@ -3,7 +3,9 @@
   <div id="app">
     <Mheader></Mheader>
     <router-view></router-view>
-    <musicDetail></musicDetail>
+    <transition name="fade">
+      <musicDetail></musicDetail>
+    </transition>
     <audioPane></audioPane>
     <audio id="play"  :src="songPlayList[0].songSrc" @ended="nextSong" @error="nextSong" preload="auto"></audio>
   </div>
@@ -21,7 +23,6 @@ export default {
     },
     methods: {
       nextSong(){
-
         if(this.$store.state.songPlayList){
           this.$store.commit("nextSong",1);
           var audio=document.getElementById('play');
@@ -61,5 +62,18 @@ body{
   margin:0;
   overflow: hidden !important;
 }
-
+.fade-enter-active {
+  animation: changeIn .5s;
+}
+.fade-leave-active {
+  animation: changeIn .5s reverse;
+}
+@keyframes changeIn {
+    from {
+      top:100%;
+    }
+    to{
+      top:0;
+    }
+  }
 </style>

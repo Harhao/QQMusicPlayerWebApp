@@ -1,11 +1,8 @@
 <template>
     <div id="musicPlayer" >
-
       <div id="back">
         <div id="backCon" @click="Back">
-
           <span id="goBack"></span>
-          <span>返回</span>
         </div>
       </div>
       <div id="musicTop">
@@ -87,7 +84,6 @@
               let lyric=response.data.lyric;
               let tmpLyric=this.formatLyric(lyric);
               let Arr=tmpLyric.split('\n');
-
               for(let i=0;i<Arr.length;i++){
                 let row=Arr[i].split(']');
                 let obj={};
@@ -293,25 +289,9 @@
     z-index:999;
     display: none;
     overflow: hidden;
-    /* background: url('https://y.gtimg.cn/music/photo_new/T001R150x150M000003Nz2So3XXYek.jpg?max_age=2592000') no-repeat; */
-    /* background-size: cover; */
-    /* -webkit-transition-origin: bottom left; */
-    -webkit-transform-origin: bottom left;
+    /* -webkit-transform-origin: bottom left; */
+    -webkit-transform-origin: bottom center;
     -webkit-animation:changeIn 0.3s ease-in-out;
-  }
-
-  @keyframes changeIn {
-    from {
-      /*-webkit-transform: scale(0, 0);
-    -webkit-transform-origin: bottom left;*/
-    -webkit-transform:rotate(90deg);
-    }
-    to{
-      /*-webkit-transform: scale(1, 1);
-      -webkit-transform-origin: top right;*/
-      -webkit-transform:rotate(0deg);
-
-    }
   }
   #back{
     width: 100%;
@@ -319,6 +299,8 @@
     color:#fff;
   }
   #backCon{
+    display: flex;
+    align-items: center;
     width: 80px;
     height: 60px;
     line-height: 60px;
@@ -331,7 +313,7 @@
     border-bottom:1px solid #fff;
     border-right: none;
     border-top:none;
-    transform: rotate(45deg);
+    transform: rotate(-45deg);
     margin-left: 20px;
     margin-top: 15px;
   }
