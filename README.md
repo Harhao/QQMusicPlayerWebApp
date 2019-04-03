@@ -12,7 +12,7 @@
     ```
      npm start
     ```
-    - 运行vue单页应用,然后在浏览器地址栏中输入http://localhost:8080/：
+    - 启动项目：
     ```
     npm run dev
     ```
