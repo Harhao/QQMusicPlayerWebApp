@@ -1,45 +1,48 @@
-let operateFunctions={
-  play(event){
-    var audio=document.getElementById('play');
+let operateFunctions = {
+  play(event) {
+    var audio = document.getElementById("play");
     //未播放
-    if(!this.toggle){
-      var state=!this.toggle;
-      this.$store.commit('changeTog',state);
+    if (!this.toggle) {
+      var state = !this.toggle;
+      this.$store.commit("changeTog", state);
       audio.play();
-    }else{
-      var state=!this.toggle;
-      this.$store.commit('changeTog',state);
+    } else {
+      var state = !this.toggle;
+      this.$store.commit("changeTog", state);
       audio.pause();
     }
-
   },
-  nextSong(){
-    if(this.$store.state.songPlayList){
-      this.$store.commit("nextSong",1);
-      var audio=document.getElementById('play');
-      audio.addEventListener("canplaythrough", function(){
+  nextSong() {
+    if (this.$store.state.songPlayList) {
+      this.$store.commit("nextSong", 1);
+      var audio = document.getElementById("play");
+      audio.addEventListener(
+        "canplaythrough",
+        function() {
           audio.play();
-      },false);
-      if(!this.toggle){
-        var state=!this.toggle;
-        this.$store.commit('changeTog',state);
+        },
+        false
+      );
+      if (!this.toggle) {
+        var state = !this.toggle;
+        this.$store.commit("changeTog", state);
       }
-
     }
   },
-  prevSong(){
-
-    this.$store.commit("prevSong",1);
-    var audio=document.getElementById('play');
-    console.log("playing");
-    audio.addEventListener("canplaythrough", function(){
+  prevSong() {
+    this.$store.commit("prevSong", 1);
+    var audio = document.getElementById("play");
+    audio.addEventListener(
+      "canplaythrough",
+      function() {
         audio.play();
-        // console.log("playing");
-    },false);
-    if(!this.toggle){
-      var state=!this.toggle;
-      this.$store.commit('changeTog',state);
+      },
+      false
+    );
+    if (!this.toggle) {
+      var state = !this.toggle;
+      this.$store.commit("changeTog", state);
     }
   }
 };
-module.exports=operateFunctions;
+module.exports = operateFunctions;

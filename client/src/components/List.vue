@@ -194,7 +194,7 @@ body{
     background-size: 24px 60px;
     background: url('../../static/images/list_sprite.png') no-repeat;
     background-position: 0 -100px;
-    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
     transform: scale(0.9);
   }
 

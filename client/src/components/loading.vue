@@ -45,11 +45,11 @@
     display: flex;
     align-self: center;
     justify-content: center;
-    -webkit-animation: rotate 0.5s linear infinite;
+    animation: rotate 0.5s linear infinite;
 
   }
   @keyframes rotate {
-    from {-webkit-transform: rotate(0deg);}
-    to {-webkit-transform: rotate(360deg);}
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
   }
 </style>
