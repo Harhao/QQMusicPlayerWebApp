@@ -1,4 +1,8 @@
 ## QQMusicPlayer(搭建的高仿QQ音乐移动端)
+[![Build Status](https://travis-ci.com/Harhao/QQMusicPlayerWebApp.svg?branch=V2)](https://travis-ci.com/Harhao/QQMusicPlayerWebApp)
+[![](https://img.shields.io/badge/vue-2.5.2-brightgreen)](https://img.shields.io/badge/vue-2.5.2-brightgreen)
+[![](https://img.shields.io/badge/vuex-v3.0.1-brightgreen)](https://img.shields.io/badge/vuex-v3.0.1-brightgreen)
+[![](https://img.shields.io/badge/vue--router-v3.0.1-brightgreen)](https://img.shields.io/badge/vue--router-v3.0.1-brightgreen)
 ### 使用方法：
 - 通过git的方式下载源码，git地址如下所示:
 ```
