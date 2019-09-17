@@ -1,0 +1,9 @@
+language: node_js
+sudo: required
+node_js:
+  - "10"
+install:
+  - npm install
+script:
+  - cd client
+  - npm run build
