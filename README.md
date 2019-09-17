@@ -1,8 +1,10 @@
 ## QQMusicPlayer(搭建的高仿QQ音乐移动端)
+
 [![Build Status](https://travis-ci.com/Harhao/QQMusicPlayerWebApp.svg?branch=V2)](https://travis-ci.com/Harhao/QQMusicPlayerWebApp)
 [![](https://img.shields.io/badge/vue-2.5.2-brightgreen)](https://img.shields.io/badge/vue-2.5.2-brightgreen)
 [![](https://img.shields.io/badge/vuex-v3.0.1-brightgreen)](https://img.shields.io/badge/vuex-v3.0.1-brightgreen)
 [![](https://img.shields.io/badge/vue--router-v3.0.1-brightgreen)](https://img.shields.io/badge/vue--router-v3.0.1-brightgreen)
+
 ### 使用方法：
 - 通过git的方式下载源码，git地址如下所示:
 ```
@@ -20,9 +22,10 @@ npm start
 ```
 npm run dev
 ```
-### 运行效果如下所示:
-
-![index](https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/1.gif)
+### 运行效果如下所示
+<div align=center>
+  <img src="https://github.com/laternkiwis/QQMusicPlayerWebApp/blob/master/Vuejs/screenshot/1.gif"/>
+</div>
 
 - 运行如出现异常原因:
 > 无法点击tab选项，主要是采用的是用数组模拟播放队列，audio加载的一直都是数组的首个元素；而QQ音乐的媒体音乐v_key值是有时间限制的，一段时间过后就会失效，所以如果出现异常，自己可以上QQ音乐查看一首歌的媒体media文件路径并填充在store.js文件的相应字段里面(v_key和songSrc的最新值)，如果发现异常就请求真实QQ音乐平台上的V_key值进行填充。
